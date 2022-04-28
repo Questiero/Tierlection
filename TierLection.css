@@ -3,17 +3,24 @@ body{
     background-color: yellow;
 }
 
-.header{
+.General{
+	position: absolute;
 }
 
-#ConnexionButton{
-    float: right;
+#Title{
+	float: left;
+}
+
+#Connexion{
+	float: right;
 }
 
 #Introduction{
-
+	margin-top: 100px;
+	text-align: justify-all;
 }
 
-p{
-    text-align: justify;
+#Credits{
+	margin-top: 200px;
+	text-align: center;
 }
