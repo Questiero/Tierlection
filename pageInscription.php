@@ -48,6 +48,21 @@
           }
         }
 
+        //affichage à l'appuie du bouton
+        if($valid){
+        	
+              echo "<p>L'inscription a été réalisée avec succès.</p>";
+              echo '<p><a href="pageInscription.html">Retour vers la page d\'accueil.</a></p>';
+              echo '<p><a href="inscriptionPlus.html">Ajouter des informations supplémentaires facultatives.</a></p>';
+  
+        // If at least one criterion was not respected, display error messages
+        }else{
+          echo "<p class=\"error\">L'inscription n'a pas pu être réalisée pour les raisons suivantes :</p>";
+          echo $message;
+          echo '<p><a href="pageInscription.html">Retour vers la page d\'accueil</a></p>';
+        }
+        
+
    /*     // Check the availability of the user name
         if ($valid){
           $available = checkUserName($connection, $username);
@@ -57,7 +72,7 @@
           }
         } */
 
-        // If everything is good, add the user
+    /*   // If everything is good, add the user
         if ($valid){
           echo "<p>Les champs ont été validés par le serveur.<p/>";
 	
@@ -86,16 +101,17 @@
         	  if ($genresOK){
               echo "<p>L'inscription a été réalisée avec succès.</p>";
               echo '<p><a href="pageInscription.html">Retour vers la page d\'accueil.</a></p>';
+              echo '<p><a href="inscriptionPlus.html">Ajouter des informations supplémentaires facultatives.</a></p>';
             }
           }
         }
   
         // If at least one criterion was not respected, display error messages
-        else{
+        }else{
           echo "<p class=\"error\">L'inscription n'a pas pu être réalisée pour les raisons suivantes :</p>";
           echo $message;
           echo '<p><a href="pageInscription.html">Retour vers la page d\'accueil</a></p>';
-        }
+        }*/
       ?>
     </div>
   </div>
