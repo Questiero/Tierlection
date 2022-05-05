@@ -20,10 +20,6 @@
                     <label for="password">Mot de passe</label>
                     <input type="password" id="password" name="password"/>
                 </div>
-
-                <div>
-                    <label id="mess_erreur"></label>
-                </div>
                     
             </div>
 
