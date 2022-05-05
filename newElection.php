@@ -58,6 +58,7 @@
             if(isset($_POST["name"]) && isset($_POST["startDate"]) && isset($_POST["endDate"]) && isset($_POST["theme"])) {
 
                 echo "oui";
+                createElection($_POST["name"], $_POST["startDate"], $_POST["endDate"], $_SESSION["idUser"], $_POST["theme"]);
                 
             }
 
@@ -93,6 +94,38 @@
         $connection = null;
 
         return $datas;
+
+    }
+
+    function createElection($name, $startDate, $endDate, $idOrganizator, $idSet) {
+
+        try {
+
+            $connection = new PDO(
+                "mysql:host=mysql-questiero.alwaysdata.net;dbname=questiero_tierlection",
+                "questiero_tl",
+                "tierlection"
+            );
+
+            // Creation election
+            $query = "INSERT INTO user (name, startDate, endDate, idOrganizator, idSet) VALUES (:name, :startDate, :endDate, :idOrganizator, :idSet)";
+            $statement = $connection->prepare($query);
+
+            // Bind value and execute query
+            $statement->bindValue(":name", $name, PDO::PARAM_STR);
+            $statement->bindValue(":startDate", $startDate, PDO::PARAM_STR);
+            $statement->bindValue(":endDate", $endDate, PDO::PARAM_STR);
+            $statement->bindValue(":idOrganizator", $idOrganizator, PDO::PARAM_INT);
+            $statement->bindValue("idSet", $idSet, PDO::PARAM_INT);
+
+            $statement->execute();
+
+            // Close connection
+            $connection = null;
+
+        } catch(PDOException $e){
+            echo $e->getMessage();
+        }
 
     }
 
