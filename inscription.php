@@ -86,6 +86,10 @@
 
                         createUser($username, $hash, $salt, $canOrganize);
 
+                        $_SESSION["username"] = $username;
+
+                        header("Location: <ital>index.php</ital>");
+
                     }
 
                 }
