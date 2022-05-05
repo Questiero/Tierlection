@@ -41,3 +41,14 @@ img{
 #credits{
 	text-align: center;
 }
+
+.panel{
+	padding: 10px;
+	line-height: 30px;
+	position: absolute;
+	left: 33%;
+	top: 40%;
+	width: 500px;
+	border: 1px solid black;
+	border-radius: 10px;
+}
