@@ -29,7 +29,7 @@
         </form>
     </div>
 
-    <div id="errors">
+    <div class="errors">
 
         <?php
 
