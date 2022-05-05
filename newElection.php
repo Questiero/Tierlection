@@ -27,8 +27,8 @@
                     <input type="date" id="endDate" name="endDate"/>
                 </div>
                 <div>
-                    <label for ="themes">Themes</label>
-                    <input id="themes" list="themes">
+                    <label for ="theme">Theme</label>
+                    <input id="theme" name="theme" list="themes">
                     <datalist id="themes">
 
                         <?php 
@@ -48,6 +48,20 @@
                 <input type="submit" value="Créer"/>
             </div>          
         </form>
+    </div>
+
+    <div class="messages">
+
+        <?php
+
+            if(isset($_POST["name"]) && isset($_POST["startDate"]) && isset($_POST["endDate"]) && isset($_POST["theme"])) {
+
+
+                
+            }
+
+        ?>
+
     </div>
 
 </body>
