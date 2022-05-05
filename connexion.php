@@ -31,16 +31,16 @@
         </form>
     </div>
 
-    <div class="errors">
+    <div class="messages">
 
         <?php
 
-            if(isset($_POST["username"])) {
+            if(isset($_POST["username"]) && isset($_POST["password"])) {
 
                 $connexionData = getConnexionData($_POST["username"]);
 
                 if(is_null($connexionData)) {
-                    echo "Nom d'utilisateur inconnu";
+                    echo "<p class='errors'> Nom d'utilisateur inconnu </p>";
                 } else {
 
                     $dbPassword = $connexionData[1];
@@ -53,7 +53,7 @@
                         header("Location: <ital>index.php</ital>");
 
                     } else {
-                        echo "Mot de passe inconnu";
+                        echo "<p class='errors'> Mot de passe inconnu </p>";
                     }
 
                 }
