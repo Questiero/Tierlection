@@ -30,10 +30,15 @@
                     <label for ="themes">Themes</label>
                     <input id="themes" list="themes">
                     <datalist id="themes">
-                        <option value="Oui">
-                        <option value="ça va ?">
-                        <option value="Pas moi">
-                        <option value="Envie de creuver">
+
+                        <?php 
+
+                            foreach(getThemes() as $theme) {
+                                echo "<option value=\"" . $theme . "\">";
+                            }
+
+                        ?>
+
                     </datalist>
                 </div>
                     
@@ -47,3 +52,29 @@
 
 </body>
 </html>
+
+<?php 
+
+    function getThemes() {
+
+        $datas = null;
+
+        $connection = new PDO(
+            "mysql:host=mysql-questiero.alwaysdata.net;dbname=questiero_tierlection",
+            "questiero_tl",
+            "tierlection"
+        );
+
+        $query = "SELECT * FROM itemSet";
+        $statement = $connection->prepare($query);
+        $statement->execute();
+
+        foreach ($statement as $row) {
+            array_push($datas, $row['name']);
+        }
+
+        return $datas;
+
+    }
+
+?>
