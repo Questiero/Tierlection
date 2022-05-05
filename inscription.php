@@ -168,6 +168,7 @@
                 "tierlection"
             );
 
+            // Creation user
             $query = "INSERT INTO user (username, password, salt, canOrganize) VALUES (:username, :password, :salt, :canOrganize)";
             $statement = $connection->prepare($query);
 
@@ -179,6 +180,7 @@
 
             $statement->execute();
 
+            // Get user ID
             $query = "SELECT idUser FROM user WHERE username = :username";
             $statement = $connection->prepare($query);
 
