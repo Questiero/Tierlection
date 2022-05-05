@@ -53,12 +53,12 @@
 
                 $valid = true;
 
-                if (strlen($username < 4)) {
+                if (strlen($username) < 4) {
                     $valid = false;
                     echo "<p class='errors'> Le nom d'utilisateur est trop court (minimum 4 caractères). </p>";
                 }
 
-                if (strlen($password < 8)) {
+                if (strlen($password) < 8) {
                     $valid = false;
                     echo "<p class='errors'> Le mot de passe est trop court (minimum 8 caractères). </p>";
                 }
