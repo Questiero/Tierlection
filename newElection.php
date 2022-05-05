@@ -30,6 +30,8 @@
                     <label for ="theme">Theme</label>
                     <select id="theme" name="theme">
 
+                        <option value="">Sélectionnez un thème</option>
+
                         <?php 
 
                             foreach(getThemes() as $theme) {
@@ -37,8 +39,6 @@
                             }
 
                         ?>
-
-                        <option value="oui">Oui</option>
 
                     </select>
                 </div>
