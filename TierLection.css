@@ -1,6 +1,13 @@
+@font-face{
+	font-family : "robot";
+	src: url(Roboto-Medium.ttf);
+}
+
 body{
 	margin-left: 20px;
 	margin-right: 20px;
+	background-image: url("./Fond.png");
+	font-family: robot;
 }
 
 img{
