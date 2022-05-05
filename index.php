@@ -51,7 +51,7 @@
             </div>
 
             <div id=\"introduction\">
-                <h2>Bienvenue chez TierLection</h2>
+                <h1>BIENVENUE CHEZ TIERLECTION</h1>
                 <p>
                     Elections par Comparaisons. le but est de se créer un compte ou l'on pourra voter pour les meilleurs objets, personnages... les résultats seront visibles ainsi que des statistiaues pour connaitre la moyenne d'age des joueurs, savoir qui vote pour quoi... POssibilité également de faire une tiers-liste si les participatns ont un compte Organisateur qui leur permet de crér des sondages . sinon il n'y a que la possibilité de voter.
                 </p>

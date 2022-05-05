@@ -1,17 +1,21 @@
 @font-face{
 	font-family : "robot";
-	src: url(Roboto-Medium.ttf);
+	src: url("./Data/Roboto-Medium.ttf");
 }
 
 body{
 	margin-left: 20px;
 	margin-right: 20px;
 	background-image: url("./Fond.png");
-	font-family: robot;
+	font-family: "robot";
 }
 
 img{
 	width: 200px;
+}
+
+#introduction>h1{
+	text-align: center;
 }
 
 .global{
@@ -24,7 +28,8 @@ img{
 
 #introduction{
 	text-align: justify-all;
-	text-align: center;
+	margin-left: 40px;
+	margin-right: 40px;
 }
 
 #credits{
