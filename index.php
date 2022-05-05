@@ -39,6 +39,31 @@
     } else {
 
         // Page d'accueil alternative
+        echo "
+        <div class=\"general\">
+            <img src=\"data/TierLection.png\">
+            <div id=\"profile\">
+                <form action=\"profile.php\">
+                    <button type=\"submit\">Mon profil</button>  
+                </form>
+            </div>
+
+            <div id=\"introduction\">
+                <h2>Bienvenue chez TierLection</h2>
+                <p>
+                    Elections par Comparaisons. le but est de se créer un compte ou l'on pourra voter pour les meilleurs objets, personnages... les résultats seront visibles ainsi que des statistiaues pour connaitre la moyenne d'age des joueurs, savoir qui vote pour quoi... POssibilité également de faire une tiers-liste si les participatns ont un compte Organisateur qui leur permet de crér des sondages . sinon il n'y a que la possibilité de voter.
+                </p>
+            </div>
+
+            <form action=\"electionList.php\">
+                <button type=\"submit\">Liste des élections</button>  
+            </form>";
+            
+        echo "<form action=\"newElection.php\">
+                <button type=\"submit\">Créer une élection</button>  
+            </form>";
+
+        echo "</div>";
 
     }
 

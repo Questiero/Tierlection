@@ -33,6 +33,8 @@
 
         <?php
 
+            if(isset($_POST["username"])) {
+
                 $connexionData = getConnexionData($_POST["username"]);
 
                 if(is_null($connexionData)) {
@@ -53,8 +55,10 @@
                     }
 
                 }
+                
+            }
 
-            ?>
+        ?>
 
     </div>
 
