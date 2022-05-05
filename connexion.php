@@ -50,7 +50,7 @@
 
                         $_SESSION["name"] = $_POST["username"];
 
-                        header("Location: <ital>index.php</ital>");
+                        header("Location: index.php");
 
                     } else {
                         echo "<p class='errors'> Mot de passe inconnu </p>";

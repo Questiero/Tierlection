@@ -88,7 +88,7 @@
 
                         $_SESSION["username"] = $username;
 
-                        header("Location: <ital>index.php</ital>");
+                        header("Location: index.php");
 
                     }
 
