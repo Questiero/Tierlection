@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,7 +61,7 @@
         }else{
           echo "<p class=\"error\">L'inscription n'a pas pu être réalisée pour les raisons suivantes :</p>";
           echo $message;
-          echo '<p><a href="pageInscription.html">Retour vers la page d\'accueil</a></p>';
+          echo '<p><a href="inscription.html">Retour vers la page d\'accueil</a></p>';
         }
         
 
