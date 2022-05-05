@@ -10,12 +10,33 @@
 
 <body>
   <div id="global">
+    <!-- Panel for subscription -->
     <div class="panel">
+        <form action="inscription.php" method="post">
+          <div id="valeurs">
+                <div>
+                    <label for="identifiant">Nom d'utilisateur</label>
+                    <input type="text" id="identifiant" name="identifiant" size="20"/>
+                </div>
+            <div>
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password"/>
+            </div>
+            <div>
+                <label for="confirm">Confirmation</label>
+                <input type="password" id="confirm" name="confirm"/>
+            </div>
 
+          
+
+            
+          
+          </div>
+
+            <div class="errors">       
+            
       <?php
-        // Connect to the database
-      //  require_once('base.php');
-
+        
         // A boolean for the validity of the user input
         $valid = true;
 
@@ -191,3 +212,25 @@
     return $randomString;
   }
 ?>
+
+
+
+
+
+
+        <!-- Choice of  -->
+      
+
+        <div id="subscription">
+          <input type="submit" value="S'inscrire"/>
+        </div>      
+      </form>
+    </div>
+
+    <div class="facultatif">
+      <form action="inscriptionPlus.php" method="post">
+        <div id="infosSupp">
+          <input type="submit" value="+"></input>
+        </div>
+      </form>
+    </div>
