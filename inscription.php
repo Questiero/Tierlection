@@ -84,9 +84,10 @@
                         echo "<p class='errors'> Nom d'utilisateur indisponible. </p>";
                     } else {
 
-                        createUser($username, $hash, $salt, $canOrganize);
+                        $idUser = createUser($username, $hash, $salt, $canOrganize);
 
                         $_SESSION["username"] = $username;
+                        $_SESSION["idUser"] = $idUser;
 
                         header("Location: index.php");
 
@@ -178,8 +179,22 @@
 
             $statement->execute();
 
+            $query = "SELECT idUser FROM user WHERE username = :username";
+            $statement = $connection->prepare($query);
+
+            // Bind value and execute query
+            $statement->bindValue(":username", $username, PDO::PARAM_STR);
+            $statement->execute();
+
+            // Browse the results
+            foreach ($statement as $row) {
+                $idUser = $row['idUser'];
+            }
+
             // Close connection
             $connection = null;
+
+            return $idUser;
 
         } catch(PDOException $e){
             echo $e->getMessage();

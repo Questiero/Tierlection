@@ -90,6 +90,8 @@
             array_push($datas, $theme);
         }
 
+        $connection = null;
+
         return $datas;
 
     }

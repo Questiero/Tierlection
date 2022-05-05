@@ -48,7 +48,8 @@
 
                     if($password == $dbPassword) {
 
-                        $_SESSION["name"] = $_POST["username"];
+                        $_SESSION["username"] = $_POST["username"];
+                        $_SESSION["idUser"] = $datas[3];
 
                         header("Location: index.php");
 
@@ -79,7 +80,7 @@
             "tierlection"
         );
 
-        $query = "SELECT salt, password FROM user WHERE username = :username";
+        $query = "SELECT salt, password, idUser FROM user WHERE username = :username";
         $statement = $connection->prepare($query);
 
         // Bind value and execute query
@@ -90,7 +91,10 @@
         foreach ($statement as $row) {
             $datas[0] = $row['salt'];
             $datas[1] = $row['password'];
+            $datas[2] = $row['idUser'];
         }
+
+        $connection = null;
 
         return $datas;
 
