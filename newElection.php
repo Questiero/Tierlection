@@ -28,18 +28,19 @@
                 </div>
                 <div>
                     <label for ="theme">Theme</label>
-                    <input id="theme" name="theme" list="themes">
-                    <datalist id="themes">
+                    <select id="theme" name="theme">
 
                         <?php 
 
                             foreach(getThemes() as $theme) {
-                                echo "<option value=\"" . $theme . "\">";
+                                echo "<option value=\"" . $theme[0] . "\">" . $theme[1] . "</option>";
                             }
 
                         ?>
 
-                    </datalist>
+                        <option value="oui">Oui</option>
+
+                    </select>
                 </div>
                     
             </div>
@@ -56,7 +57,7 @@
 
             if(isset($_POST["name"]) && isset($_POST["startDate"]) && isset($_POST["endDate"]) && isset($_POST["theme"])) {
 
-
+                echo "oui";
                 
             }
 
@@ -84,7 +85,9 @@
         $statement->execute();
 
         foreach ($statement as $row) {
-            array_push($datas, $row['name']);
+            $theme[0] = $row["idSet"];
+            $theme[1] = $row["name"];
+            array_push($datas, $theme);
         }
 
         return $datas;
