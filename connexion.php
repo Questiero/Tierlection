@@ -1,9 +1,4 @@
-<?php 
-
-    session_start();
-    require_once("base.php");
-
-?>
+<?php session_start(); ?>
 
 <!DOCTYPE html>
 <html>
@@ -60,6 +55,7 @@
                     }
 
                 }
+                
             }
 
         ?>
