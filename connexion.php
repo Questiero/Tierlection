@@ -124,7 +124,7 @@
         // Browse the results
         foreach ($statement as $row) {
             $datas = [
-                "idUser" => [$row['idUser'],
+                "idUser" => $row['idUser'],
                 "username" => $row['username'],
                 "canOrganize" => $row['canOrganize']];
         }
