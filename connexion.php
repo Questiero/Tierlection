@@ -1,5 +1,11 @@
 <?php 
+
     session_start();
+
+    if(isset($_SESSION['user'])) {
+        header("Location: index.php");
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -48,8 +54,7 @@
 
                     if($password == $dbPassword) {
 
-                        $_SESSION["username"] = $_POST["username"];
-                        $_SESSION["idUser"] = $datas[3];
+                        $_SESSION["user"] = getUserData();
 
                         header("Location: index.php");
 
@@ -80,7 +85,7 @@
             "tierlection"
         );
 
-        $query = "SELECT salt, password, idUser FROM user WHERE username = :username";
+        $query = "SELECT salt, password FROM user WHERE username = :username";
         $statement = $connection->prepare($query);
 
         // Bind value and execute query
@@ -91,7 +96,37 @@
         foreach ($statement as $row) {
             $datas[0] = $row['salt'];
             $datas[1] = $row['password'];
-            $datas[2] = $row['idUser'];
+        }
+
+        $connection = null;
+
+        return $datas;
+
+    }
+
+    function getUserData($username) {
+
+        $datas = null;
+
+        $connection = new PDO(
+            "mysql:host=mysql-questiero.alwaysdata.net;dbname=questiero_tierlection",
+            "questiero_tl",
+            "tierlection"
+        );
+
+        $query = "SELECT idUser, username, canOrganize FROM user WHERE username = :username";
+        $statement = $connection->prepare($query);
+
+        // Bind value and execute query
+        $statement->bindValue(":username", $username, PDO::PARAM_STR);
+        $statement->execute();
+
+        // Browse the results
+        foreach ($statement as $row) {
+            $datas = [
+                "idUser" => [$row['idUser'],
+                "username" => $row['username'],
+                "canOrganize" => $row['canOrganize']];
         }
 
         $connection = null;

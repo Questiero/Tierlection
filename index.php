@@ -11,7 +11,7 @@
 </head>
 <body>
     
-    <?php if(!isset($_SESSION['username'])) {
+    <?php if(!isset($_SESSION['user'])) {
 
         echo "
         <div class=\"general\">

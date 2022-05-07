@@ -1,5 +1,9 @@
 <?php 
+
     session_start();
+
+    
+
 ?>
 
 <!DOCTYPE html>
@@ -86,10 +90,7 @@
 
                         $idUser = createUser($username, $hash, $salt, $canOrganize);
 
-                        $_SESSION["username"] = $username;
-                        $_SESSION["idUser"] = $idUser;
-
-                        header("Location: index.php");
+                        header("Location: connexion.php");
 
                     }
 
