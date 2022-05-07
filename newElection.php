@@ -57,8 +57,31 @@
 
             if(isset($_POST["name"]) && isset($_POST["startDate"]) && isset($_POST["endDate"]) && isset($_POST["theme"])) {
 
-                echo "oui";
-                createElection($_POST["name"], $_POST["startDate"], $_POST["endDate"], $_SESSION["idUser"], $_POST["theme"]);
+                $todayYear = intval(date('y'));
+                $todayMonth = intval(date('m'));
+                $todayDay = intval(date('d'));
+
+                $startYear = intval(substr($_POST["startDate"], 2, -6));
+                $startMonth = intval(substr($_POST["startDate"], 5, -3));
+                $startDay = intval(substr($_POST["startDate"], 8));
+
+                if($startYear < $todayYear || ($startYear == $todayYear && ($startMonth < $todayMonth || ($startMonth == $todayMonth && $startDay < $todayDay)))) {
+                    echo "<p class='errors'> Date de début incorrecte. </p>";
+                } else {
+
+                    $endYear = intval(substr($_POST["endDate"], 2, -6));
+                    $endMonth = intval(substr($_POST["endDate"], 5, -3));
+                    $endDay = intval(substr($_POST["endDate"], 8));
+
+                    if($endYear < $todayYear || ($endYear == $todayYear && ($endMonth < $todayMonth || ($endMonth == $todayMonth && $endDay < $todayDay)))) {
+                        echo "<p class='errors'> Date de fin incorrecte. </p>";
+                    } else {
+
+                        createElection($_POST["name"], $_POST["startDate"], $_POST["endDate"], $_SESSION["idUser"], $_POST["theme"]);
+
+                    }
+
+                }
                 
             }
 
