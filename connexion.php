@@ -59,7 +59,7 @@
                         header("Location: index.php");
 
                     } else {
-                        echo "<p class='errors'> Mot de passe inconnu </p>";
+                        echo "<p class='errors'> Mot de passe incorrect </p>";
                     }
 
                 }
