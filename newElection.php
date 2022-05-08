@@ -83,9 +83,9 @@
                         echo "<p class='errors'> Date de fin incorrecte. </p>";
                     } else {
 
-                        $_SESSION["idElection"] = createElection($_POST["name"], $_POST["startDate"], $_POST["endDate"], $_SESSION["user"]["idUser"], $_POST["theme"]);
+                        $idElection = createElection($_POST["name"], $_POST["startDate"], $_POST["endDate"], $_SESSION["user"]["idUser"], $_POST["theme"]);
 
-                        header("Location: electionPage.php");
+                        header("Location: electionPage.php?idElection=".$idElection);
 
                     }
 
