@@ -41,7 +41,7 @@
                         <?php 
 
                             foreach(getThemes() as $theme) {
-                                echo "<option value=\"" . $theme[0] . "\">" . $theme[1] . "</option>";
+                                echo "<option value=\"" . $theme["idSet"] . "\">" . $theme["name"] . "</option>";
                             }
 
                         ?>
@@ -112,13 +112,14 @@
             "tierlection"
         );
 
-        $query = "SELECT * FROM itemSet";
+        $query = "SELECT idSet, name FROM itemSet";
         $statement = $connection->prepare($query);
         $statement->execute();
 
         foreach ($statement as $row) {
-            $theme[0] = $row["idSet"];
-            $theme[1] = $row["name"];
+            $theme = [
+                "idSet" => $row["idSet"],
+                "name" => $row["name"]];
             array_push($datas, $theme);
         }
 
