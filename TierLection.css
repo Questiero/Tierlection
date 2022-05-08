@@ -1,11 +1,11 @@
 @font-face{
 	font-family : "robot";
-	src: url("./Data/Roboto-Medium.ttf");
+	src: url("./data/fonts/roboto/Roboto-Medium.ttf");
 }
 
 @font-face{
 	font-family : "rob";
-	src: url("./Data/Roboto-Light.ttf");
+	src: url("./data/fonts/roboto/Roboto-Light.ttf");
 }
 
 body{
