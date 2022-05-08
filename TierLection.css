@@ -1,10 +1,10 @@
 @font-face{
-	font-family : "robot";
+	font-family : "roboto-medium";
 	src: url("./data/fonts/roboto/Roboto-Medium.ttf");
 }
 
 @font-face{
-	font-family : "rob";
+	font-family : "roboto-light";
 	src: url("./data/fonts/roboto/Roboto-Light.ttf");
 }
 
@@ -12,7 +12,7 @@ body{
 	margin-left: 20px;
 	margin-right: 20px;
 	background-image: url("./Fond.png");
-	font-family: "robot";
+	font-family: "roboto-medium";
 }
 
 img{
@@ -35,7 +35,7 @@ img{
 	text-align: justify-all;
 	margin-left: 40px;
 	margin-right: 40px;
-	font-family: "rob";
+	font-family: "roboto-light";
 }
 
 #credits{
