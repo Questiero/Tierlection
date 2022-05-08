@@ -83,7 +83,7 @@
                         echo "<p class='errors'> Date de fin incorrecte. </p>";
                     } else {
 
-                        createElection($_POST["name"], $_POST["startDate"], $_POST["endDate"], $_SESSION["idUser"], $_POST["theme"]);
+                        createElection($_POST["name"], $_POST["startDate"], $_POST["endDate"], $_SESSION["user"]["idUser"], $_POST["theme"]);
 
                     }
 
@@ -137,7 +137,7 @@
             );
 
             // Creation election
-            $query = "INSERT INTO user (name, startDate, endDate, idOrganizator, idSet) VALUES (:name, :startDate, :endDate, :idOrganizator, :idSet)";
+            $query = "INSERT INTO election (name, startDate, endDate, idOrganizator, idSet) VALUES (:name, :startDate, :endDate, :idOrganizator, :idSet)";
             $statement = $connection->prepare($query);
 
             // Bind value and execute query
