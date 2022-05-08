@@ -102,7 +102,7 @@
 
     function getThemes() {
 
-        $datas = null;
+        $datas = array();
 
         $connection = new PDO(
             "mysql:host=mysql-questiero.alwaysdata.net;dbname=questiero_tierlection",

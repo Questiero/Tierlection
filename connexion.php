@@ -54,7 +54,7 @@
 
                     if($password == $dbPassword) {
 
-                        $_SESSION["user"] = getUserData();
+                        $_SESSION["user"] = getUserData($_POST["username"]);
 
                         header("Location: index.php");
 
