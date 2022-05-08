@@ -83,7 +83,9 @@
                         echo "<p class='errors'> Date de fin incorrecte. </p>";
                     } else {
 
-                        createElection($_POST["name"], $_POST["startDate"], $_POST["endDate"], $_SESSION["user"]["idUser"], $_POST["theme"]);
+                        $_SESSION["idElection"] = createElection($_POST["name"], $_POST["startDate"], $_POST["endDate"], $_SESSION["user"]["idUser"], $_POST["theme"]);
+
+                        header("Location: electionPage.php");
 
                     }
 
@@ -149,8 +151,23 @@
 
             $statement->execute();
 
+            // Get election ID
+            $query = "SELECT COUNT(*) FROM election";
+            $statement = $connection->prepare($query);
+
+            // Bind value and execute query
+            $statement->bindValue(":username", $username, PDO::PARAM_STR);
+            $statement->execute();
+
+            // Browse the results
+            foreach ($statement as $row) {
+                $idElection = $row['COUNT(*)'];
+            }
+
             // Close connection
             $connection = null;
+
+            return $idElection;
 
         } catch(PDOException $e){
             echo $e->getMessage();
