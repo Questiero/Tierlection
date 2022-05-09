@@ -17,6 +17,19 @@
 </head>
 <body>
 
+    <div id="titre">
+        <img src="data/TierLection-Logo.png">
+        <h2>Nouveau vote</h2>
+        <div id="profile">
+                    <form action="profile.php">
+                        <button type="submit">Mon profil</button>  
+                    </form>
+                    <form action="disconnect.php\">
+                        <button type="submit">Déconnexion</button>
+                    </form>
+
+    </div>
+
     <div class="panel">
         <form action="newElection.php" method="post">
             <div id="valeurs">
@@ -52,7 +65,7 @@
             </div>
 
             <div id="create">
-                <input type="submit" value="Créer"/>
+                <button type="submit">Créer</button>
             </div>          
         </form>
     </div>

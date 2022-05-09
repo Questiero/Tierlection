@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="Tierlection.css"/>
 </head>
 <body>
+    
 
     <div class="vote">
         <div id="left">

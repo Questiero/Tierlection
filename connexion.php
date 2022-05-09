@@ -32,7 +32,7 @@
             </div>
 
             <div id="connection">
-                <input type="submit" value="Connection"/>
+                <button type="submit">Connexion</button>
             </div>          
         </form>
     </div>

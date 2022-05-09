@@ -17,6 +17,7 @@
 </head>
 <body>
 
+
     <table>
         <tr>
             <th>Nom</th>
@@ -26,6 +27,8 @@
         </tr>
         
         <?php 
+
+
 
             foreach(getElectionList() as $election) {
 
@@ -41,6 +44,22 @@
         ?>
 
     </table>
+
+    <div id="titre">
+        <img src="data/TierLection-Logo.png">
+        <h2>Liste des votes</h2>
+        <div id="profile">
+                    <form action="profile.php">
+                        <button type="submit">Mon profil</button>  
+                    </form>
+                    <form action="disconnect.php\">
+                        <button type="submit">Déconnexion</button>
+                    </form>
+
+    </div>
+        
+
+        
 
 </body>
 </html>

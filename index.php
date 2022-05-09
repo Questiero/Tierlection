@@ -15,20 +15,26 @@
 
         echo "
         <div class=\"general\">
-            <img src=\"data/TierLection.png\">
-            <div id=\"connexion\">
-                <form action=\"connexion.php\">
-                    <button type=\"submit\">Connexion</button>
-                </form>
-                <form action=\"inscription.php\">
-                    <button type=\"submit\">Inscription</button>  
-                </form>
+            <div id=\"titre\">
+                 <img src=\"data/TierLection-Logo.png\">
+                 <h1>BIENVENUE CHEZ TIERLECTION</h1>
+                    <div id=\"connexion\">
+                        <form action=\"connexion.php\">
+                             <button type=\"submit\">Connexion</button>
+                         </form>
+                         <form action=\"inscription.php\">
+                             <button type=\"submit\">Inscription</button>  
+                         </form>
+                    </div>
             </div>
 
             <div id=\"introduction\">
-                <h1>BIENVENUE CHEZ TIERLECTION</h1>
+                
                 <p>
-                    Elections par Comparaisons. le but est de se créer un compte ou l'on pourra voter pour les meilleurs objets, personnages... les résultats seront visibles ainsi que des statistiaues pour connaitre la moyenne d'age des joueurs, savoir qui vote pour quoi... POssibilité également de faire une tiers-liste si les participatns ont un compte Organisateur qui leur permet de crér des sondages . sinon il n'y a que la possibilité de voter.
+                    Tierlection est une application révolutionnaire qui vous permettra de réaliser une élection par comparaisons qui s'affichera sous forme de Tier List ! <br>
+                    En effet, lors d'un debat entre amis, sur des sujets divers et variés, il est souvent difficile de se mettre d'accord et de partager des avis communs <br>
+
+                    Et c'est là que nous entrons en scène ! Réaliser dès maintenant une élections par comparaison où chaque utilisateurs contribura à créer une Tier List unique et incontestable ! <br>
                 </p>
             </div>
 
@@ -43,29 +49,39 @@
         // Page d'accueil alternative
         echo "
         <div class=\"general\">
-            <img src=\"data/TierLection.png\">
-            <div id=\"profile\">
-                <form action=\"profile.php\">
-                    <button type=\"submit\">Mon profil</button>  
-                </form>
-            </div>
+            <div id=\"titre\">
+                <img src=\"data/TierLection-Logo.png\">
+                <h1>BIENVENUE CHEZ TIERLECTION</h1>
+                <div id=\"profile\">
+                    <form action=\"profile.php\">
+                        <button type=\"submit\">Mon profil</button>  
+                    </form>
+                    <form action=\"disconnect.php\">
+                        <button type=\"submit\">Déconnexion</button>
+                    </form>
+
+                </div>
 
             <div id=\"introduction\">
-                <h1>BIENVENUE CHEZ TIERLECTION</h1>
                 <p>
-                    Elections par Comparaisons. le but est de se créer un compte ou l'on pourra voter pour les meilleurs objets, personnages... les résultats seront visibles ainsi que des statistiaues pour connaitre la moyenne d'age des joueurs, savoir qui vote pour quoi... POssibilité également de faire une tiers-liste si les participatns ont un compte Organisateur qui leur permet de crér des sondages . sinon il n'y a que la possibilité de voter.
+                    Tierlection est une application révolutionnaire qui vous permettra de réaliser une élection par comparaisons qui s'affichera sous forme de Tier List ! <br>
+                    En effet, lors d'un debat entre amis, sur des sujets divers et variés, il est souvent difficile de se mettre d'accord et de partager des avis communs <br>
+
+                    Et c'est là que nous entrons en scène ! Réaliser dès maintenant une élections par comparaison où chaque utilisateurs contribura à créer une Tier List unique et incontestable ! <br>
                 </p>
             </div>
 
-            <form action=\"electionList.php\">
-                <button type=\"submit\">Liste des élections</button>  
+            
+            <form action=\"electionList.php\" >
+                 <button type=\"submit\" id=\"elec_list\">Liste des élections</button>  
             </form>";
             
-        echo "<form action=\"newElection.php\">
-                <button type=\"submit\">Créer une élection</button>  
-            </form>";
+            echo "<form action=\"newElection.php\">
+                   <button type=\"submit\" id=\"elec_new\">Créer une élection</button>  
+                  </form>";
 
-        echo "</div>";
+             echo "</div>";
+            
 
     }
 
