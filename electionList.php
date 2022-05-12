@@ -24,6 +24,7 @@
             <th>Date de début</th>
             <th>Date de fin</th>
             <th>Organisateur</th>
+            <th>Ouvrir</th>
         </tr>
         
         <?php 
@@ -37,6 +38,7 @@
                 echo "<td>" . $election["startDate"] . "</td>";
                 echo "<td>" . $election["endDate"] . "</td>";
                 echo "<td>" . $election["organizator"] . "</td>";
+                echo "<td><form action='electionPage.php' method='get'><input type='hidden' name='idElection' value = '" . $election["idElection"] . "'></input><button type='submit'>Ouvrir</button></form></td>";
                 echo "</tr>";
 
             }
@@ -58,9 +60,6 @@
 
     </div>
         
-
-        
-
 </body>
 </html>
 
@@ -76,7 +75,7 @@
             "tierlection"
         );
 
-        $query = "SELECT e.name, e.startDate, e.endDate, u.username FROM election e, user u WHERE u.idUser = e.idOrganizator";
+        $query = "SELECT e.name, e.startDate, e.endDate, u.username, e.idElection FROM election e, user u WHERE u.idUser = e.idOrganizator";
         $statement = $connection->prepare($query);
 
         // Execute query
@@ -88,7 +87,8 @@
                 "name" => $row['name'], 
                 "startDate" => $row['startDate'],
                 "endDate" => $row['endDate'],
-                "organizator" => $row['username']];
+                "organizator" => $row['username'],
+                "idElection" => $row['idElection']];
             array_push($datas, $temp);
         }
 
