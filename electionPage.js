@@ -1,5 +1,6 @@
+var itemTuple = {};
 var votes = {};
-var vote = 0;
+var nbrVote = 0;
 
 function loadJSON(idElection) {
 
@@ -9,7 +10,7 @@ function loadJSON(idElection) {
 
 		if(req.readyState == 4 && req.status == 200) {
 			var response = JSON.parse(req.responseText);
-			process(response);
+			init(response);
 		}
 
 	}
@@ -19,17 +20,33 @@ function loadJSON(idElection) {
 
 }
 
-function process(items) {
+function init(items) {
 
+	// Init itemTuple
+	itemTuple = randomTuples(items);
+
+	// Init votes
     items.forEach(item => {
         votes[item.name] = 0;
     });
 
-	var itemTuple = randomTuples(items);
+    // Init eventListeners
+    document.getElementById("card-left").addEventListener("click", function() {
+    	var name = document.getElementById("card-name-left").innerHTML;
+    	votes[name]++;
+    	nbrVote++;
+    	generateCards(itemTuple[nbrVote]);
+    	console.log(votes);
+    	});
+    document.getElementById("card-right").addEventListener("click", function() {
+    	var name = document.getElementById("card-name-right").innerHTML;
+    	votes[name]++;
+    	nbrVote++;
+    	generateCards(itemTuple[nbrVote]);
+    	console.log(votes);
+    	});
 
-	generateCards(itemTuple[vote]);
-
-	vote++;
+	generateCards(itemTuple[0]);
 
 }
 
