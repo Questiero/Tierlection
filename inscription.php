@@ -160,7 +160,7 @@
         $statement->bindValue(":username", $username, PDO::PARAM_STR);
         $statement->bindValue(":password", $password, PDO::PARAM_STR);
         $statement->bindValue(":salt", $salt, PDO::PARAM_STR);
-         $statement->bindValue(":canOrganize", $canOrganize, PDO::PARAM_BOOL);
+        $statement->bindValue(":canOrganize", $canOrganize, PDO::PARAM_BOOL);
 
         $statement->execute();
 
