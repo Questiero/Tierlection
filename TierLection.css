@@ -197,16 +197,8 @@ button{
 
 .vote{
 	margin: auto;
-	width: 920px;
+	width: 200px;
 	margin-top: 50px;
 	height: 450px;
-	border: 1px solid blue;
-}
-
-#left, #right{
-	width: 400px;
 	border: 1px solid red;
-	height: 400px;
-	margin: 25px;
-	display:inline-block;
 }
