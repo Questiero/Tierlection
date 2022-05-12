@@ -70,7 +70,7 @@ function generateCards(tuple) {
 	cardLeft.innerHTML = "";
 
 	var nameLeft = document.createElement("p");
-	nameLeft.class = "card-name";
+	nameLeft.className = "card-name";
 	nameLeft.id = "card-name-left";
 	nameLeft.innerHTML = tuple[0].name;
 	cardLeft.append(nameLeft);
@@ -78,7 +78,7 @@ function generateCards(tuple) {
 	cardLeft.innerHTML += '<img id="img-left" src="' + tuple[0].icon + '">';
 
 	var descriptionLeft = document.createElement("p");
-	descriptionLeft.class = "card-description";
+	descriptionLeft.className = "card-description";
 	descriptionLeft.id = "card-description-left";
 	descriptionLeft.innerHTML = tuple[0].name;
 	cardLeft.append(descriptionLeft);
@@ -88,7 +88,7 @@ function generateCards(tuple) {
 	cardRight.innerHTML = "";
 
 	var nameRight = document.createElement("p");
-	nameRight.class = "card-name";
+	nameRight.className = "card-name";
 	nameRight.id = "card-name-right";
 	nameRight.innerHTML = tuple[0].name;
 	cardRight.append(nameRight);
@@ -96,7 +96,7 @@ function generateCards(tuple) {
 	cardRight.innerHTML += '<img id="img-right" src="' + tuple[1].icon + '">';
 
 	var descriptionRight = document.createElement("p");
-	descriptionRight.class = "card-description";
+	descriptionRight.className = "card-description";
 	descriptionRight.id = "card-description-right";
 	descriptionRight.innerHTML = tuple[0].name;
 	cardRight.append(descriptionRight);
