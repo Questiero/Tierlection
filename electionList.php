@@ -54,7 +54,7 @@
                     <form action="profile.php">
                         <button type="submit">Mon profil</button>  
                     </form>
-                    <form action="disconnect.php\">
+                    <form action="disconnect.php">
                         <button type="submit">Déconnexion</button>
                     </form>
 

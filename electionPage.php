@@ -13,7 +13,7 @@
 <head>
     <title>TierLection</title>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="TierLection.css"/>
+    <link rel="stylesheet" href="Tierlection.css"/>
 </head>
 <body>
     
@@ -23,7 +23,10 @@
     </div>
 
     <script type="text/javascript" src="electionPage.js"></script>
-    <script type="text/javascript">loadJSON(<?php echo $_GET["idElection"]; ?>);</script>
+    <script type="text/javascript">
+        var idElection = <?php echo $_GET["idElection"]; ?>;
+        loadJSON(idElection);
+    </script>
 
 </body>
 </html>

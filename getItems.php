@@ -7,7 +7,7 @@
 
 	$connection->exec("SET NAMES 'utf8'");
 
-	$query = "SELECT DISTINCT i.name, i.description, i.icon FROM item i, belongs b, election e WHERE e.idElection = :idElection AND b.idSet = e.idSet AND i.idItem = b.idItem";
+	$query = "SELECT i.name, i.description, i.icon FROM item i, election e WHERE e.idElection = :idElection AND i.idSet = e.idSet";
 
 	$statement = $connection->prepare($query);
 

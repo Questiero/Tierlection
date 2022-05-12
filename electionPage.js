@@ -35,16 +35,20 @@ function init(items) {
     	var name = document.getElementById("card-name-left").innerHTML;
     	votes[name]++;
     	nbrVote++;
-    	generateCards(itemTuple[nbrVote]);
-    	console.log(votes);
-    	});
+    	if(nbrVote >= itemTuple.length) {
+    		updateVotes();
+    	} else {
+    		generateCards(itemTuple[nbrVote]);
+    	}});
     document.getElementById("card-right").addEventListener("click", function() {
     	var name = document.getElementById("card-name-right").innerHTML;
     	votes[name]++;
     	nbrVote++;
-    	generateCards(itemTuple[nbrVote]);
-    	console.log(votes);
-    	});
+    	if(nbrVote >= itemTuple.length) {
+    		updateVotes();
+    	} else {
+    		generateCards(itemTuple[nbrVote]);
+    	}});
 
 	generateCards(itemTuple[0]);
 
@@ -54,8 +58,8 @@ function randomTuples(array) {
 
 	var tuples = new Array();
 
-	for(var i = 0; i < array.length - 1; i++) {
-		for(var j = i+1; j < array.length - 1; j++) {
+	for(var i = 0; i < array.length; i++) {
+		for(var j = i+1; j < array.length; j++) {
 			tuple = [array[i], array[j]];
 			shuffle(tuple);
 			tuples.push(tuple);
@@ -106,7 +110,7 @@ function generateCards(tuple) {
 	var nameRight = document.createElement("p");
 	nameRight.className = "card-name";
 	nameRight.id = "card-name-right";
-	nameRight.innerHTML = tuple[0].name;
+	nameRight.innerHTML = tuple[1].name;
 	cardRight.append(nameRight);
 
 	cardRight.innerHTML += '<img id="img-right" src="' + tuple[1].icon + '">';
@@ -117,4 +121,16 @@ function generateCards(tuple) {
 	descriptionRight.innerHTML = tuple[1].description;
 	cardRight.append(descriptionRight);
 
+}
+
+function updateVotes() {
+
+	var path = "updateVotes.php?idElection=" + idElection;
+
+	Object.keys(votes).forEach(name => {
+		var value = "&" + name + "=" + votes[name];
+		path += value;
+	})
+
+	window.location.href = path;
 }

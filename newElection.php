@@ -26,7 +26,7 @@
                     <form action="profile.php">
                         <button type="submit">Mon profil</button>  
                     </form>
-                    <form action="disconnect.php\">
+                    <form action="disconnect.php">
                         <button type="submit">Déconnexion</button>
                     </form>
 
@@ -100,6 +100,10 @@
 
                         $idElection = createElection($_POST["name"], $_POST["startDate"], $_POST["endDate"], $_SESSION["user"]["idUser"], $_POST["theme"]);
 
+                        foreach(getIdItems($idElection) as $item) {
+                            createVotes($idElection, $item["idItem"]);
+                        }
+
                         header("Location: electionPage.php?idElection=".$idElection);
 
                     }
@@ -160,7 +164,6 @@
         $statement = $connection->prepare($query);
 
         // Bind value and execute query
-        $statement->bindValue(":username", $username, PDO::PARAM_STR);
         $statement->execute();
 
         // Browse the results
@@ -169,6 +172,43 @@
         }
 
         return $idElection;
+
+    }
+
+    function getIdItems($idElection) {
+
+        require 'base.php';
+
+        $query = "SELECT i.idItem FROM item i, election e WHERE e.idElection = :idElection AND i.idSet = e.idSet";
+
+        $statement = $connection->prepare($query);
+
+        // Bind value and execute query
+        $statement->bindValue(":idElection", $idElection, PDO::PARAM_STR);
+
+        $statement->execute();
+
+        $items = array();
+        foreach($statement as $row) {
+            array_push($items, ["idItem" => $row["idItem"]]);
+        }
+
+        return $items;
+
+    }
+
+    function createVotes($idElection, $idItem) {
+
+        require 'base.php';
+
+        $query = "INSERT INTO vote (idElection, idItem, nbrVotes) VALUES (:idElection, :idItem, 0)";
+        $statement = $connection->prepare($query);
+
+        // Bind value and execute query
+        $statement->bindValue(":idElection", $idElection, PDO::PARAM_INT);
+        $statement->bindValue(":idItem", $idItem, PDO::PARAM_INT);
+
+        $statement->execute();
 
     }
 
