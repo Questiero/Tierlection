@@ -28,7 +28,8 @@
         </div>
     </div>
 
-    <script type="text/javascript" source="electionPage.js"></script>
+    <script type="text/javascript" src="electionPage.js"></script>
+    <script type="text/javascript">loadJSON(<?php echo $_GET["idElection"]; ?>);</script>
 
 </body>
 </html>
