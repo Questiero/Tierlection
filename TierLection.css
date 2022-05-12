@@ -196,14 +196,17 @@ button{
 }
 
 .vote{
-	width: 80%;
-	height: 500px;
-	border: 1px solid blue;
 	margin: auto;
+	width: 920px;
+	margin-top: 50px;
+	height: 450px;
+	border: 1px solid blue;
 }
 
 #left, #right{
-	position: relative;
+	width: 400px;
 	border: 1px solid red;
-	width: 50%;
+	height: 400px;
+	margin: 25px;
+	display:inline-block;
 }
