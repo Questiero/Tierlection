@@ -26,8 +26,6 @@ function process(items) {
 
 	var itemTuple = randomTuples(items);
 
-	console.log(itemTuple);
-
 	generateCards(itemTuple[0]);
 
 }
@@ -63,8 +61,6 @@ function shuffle(array) {
 
 function generateCards(tuple) {
 
-	console.log(tuple);
-
 	// update left card
 	var cardLeft = document.getElementById("card-left");
 	cardLeft.innerHTML = "";
@@ -80,7 +76,7 @@ function generateCards(tuple) {
 	var descriptionLeft = document.createElement("p");
 	descriptionLeft.className = "card-description";
 	descriptionLeft.id = "card-description-left";
-	descriptionLeft.innerHTML = tuple[0].name;
+	descriptionLeft.innerHTML = tuple[0].description;
 	cardLeft.append(descriptionLeft);
 
 	// update right card
@@ -98,7 +94,7 @@ function generateCards(tuple) {
 	var descriptionRight = document.createElement("p");
 	descriptionRight.className = "card-description";
 	descriptionRight.id = "card-description-right";
-	descriptionRight.innerHTML = tuple[0].name;
+	descriptionRight.innerHTML = tuple[1].description;
 	cardRight.append(descriptionRight);
 
 }
