@@ -17,7 +17,6 @@
 </head>
 <body>
     
-
     <div class="vote">
         <div id="left">
             <div class="card" id="card-left"></div>
@@ -28,6 +27,8 @@
             <div class="button" id="button-right"></div>
         </div>
     </div>
+
+    <script type="text/javascript" source="electionPage.js"></script>
 
 </body>
 </html>
