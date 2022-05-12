@@ -1,4 +1,5 @@
 var votes = {};
+var vote = 0;
 
 function loadJSON(idElection) {
 
@@ -26,7 +27,9 @@ function process(items) {
 
 	var itemTuple = randomTuples(items);
 
-	generateCards(itemTuple[0]);
+	generateCards(itemTuple[vote]);
+
+	vote++;
 
 }
 
