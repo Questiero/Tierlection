@@ -77,13 +77,9 @@
 
     function getConnexionData($username) {
 
-        $datas = null;
+        require 'base.php';
 
-        $connection = new PDO(
-            "mysql:host=mysql-questiero.alwaysdata.net;dbname=questiero_tierlection",
-            "questiero_tl",
-            "tierlection"
-        );
+        $datas = null;
 
         $query = "SELECT salt, password FROM user WHERE username = :username";
         $statement = $connection->prepare($query);
@@ -98,21 +94,15 @@
             $datas[1] = $row['password'];
         }
 
-        $connection = null;
-
         return $datas;
 
     }
 
     function getUserData($username) {
 
-        $datas = null;
+        require 'base.php';
 
-        $connection = new PDO(
-            "mysql:host=mysql-questiero.alwaysdata.net;dbname=questiero_tierlection",
-            "questiero_tl",
-            "tierlection"
-        );
+        $datas = null;
 
         $query = "SELECT idUser, username, canOrganize FROM user WHERE username = :username";
         $statement = $connection->prepare($query);
@@ -128,8 +118,6 @@
                 "username" => $row['username'],
                 "canOrganize" => $row['canOrganize']];
         }
-
-        $connection = null;
 
         return $datas;
 

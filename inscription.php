@@ -125,36 +125,23 @@
 
     function checkUsername($username) {
 
+        require 'base.php';
+
         $result = false;
 
-        try {
+        // Make the query
+        $query = "SELECT COUNT(*) FROM user WHERE username = :username";
+        $statement = $connection->prepare($query);
 
-            $connection = new PDO(
-                "mysql:host=mysql-questiero.alwaysdata.net;dbname=questiero_tierlection",
-                "questiero_tl",
-                "tierlection"
-            );
+        // Bind value and execute query
+        $statement->bindValue(":username", $username, PDO::PARAM_STR);
+        $statement->execute();
 
-            // Make the query
-            $query = "SELECT COUNT(*) FROM user WHERE username = :username";
-            $statement = $connection->prepare($query);
-
-            // Bind value and execute query
-            $statement->bindValue(":username", $username, PDO::PARAM_STR);
-            $statement->execute();
-
-            // Browse the results
-            foreach ($statement as $row) {
-                if($row['COUNT(*)']==0) {
-                    $result = true;
-                }
+        // Browse the results
+        foreach ($statement as $row) {
+            if($row['COUNT(*)']==0) {
+                $result = true;
             }
-
-            // Close connection
-            $connection = null;
-
-        } catch(PDOException $e){
-            echo $e->getMessage();
         }
 
         return $result;
@@ -163,47 +150,34 @@
 
     function createUser($username, $password, $salt, $canOrganize) {
 
-        try {
+        require 'base.php';
 
-            $connection = new PDO(
-                "mysql:host=mysql-questiero.alwaysdata.net;dbname=questiero_tierlection",
-                "questiero_tl",
-                "tierlection"
-            );
+        // Creation user
+        $query = "INSERT INTO user (username, password, salt, canOrganize) VALUES (:username, :password, :salt, :canOrganize)";
+        $statement = $connection->prepare($query);
 
-            // Creation user
-            $query = "INSERT INTO user (username, password, salt, canOrganize) VALUES (:username, :password, :salt, :canOrganize)";
-            $statement = $connection->prepare($query);
+        // Bind value and execute query
+        $statement->bindValue(":username", $username, PDO::PARAM_STR);
+        $statement->bindValue(":password", $password, PDO::PARAM_STR);
+        $statement->bindValue(":salt", $salt, PDO::PARAM_STR);
+         $statement->bindValue(":canOrganize", $canOrganize, PDO::PARAM_BOOL);
 
-            // Bind value and execute query
-            $statement->bindValue(":username", $username, PDO::PARAM_STR);
-            $statement->bindValue(":password", $password, PDO::PARAM_STR);
-            $statement->bindValue(":salt", $salt, PDO::PARAM_STR);
-             $statement->bindValue(":canOrganize", $canOrganize, PDO::PARAM_BOOL);
+        $statement->execute();
 
-            $statement->execute();
+        // Get user ID
+        $query = "SELECT idUser FROM user WHERE username = :username";
+        $statement = $connection->prepare($query);
 
-            // Get user ID
-            $query = "SELECT idUser FROM user WHERE username = :username";
-            $statement = $connection->prepare($query);
+        // Bind value and execute query
+        $statement->bindValue(":username", $username, PDO::PARAM_STR);
+        $statement->execute();
 
-            // Bind value and execute query
-            $statement->bindValue(":username", $username, PDO::PARAM_STR);
-            $statement->execute();
-
-            // Browse the results
-            foreach ($statement as $row) {
-                $idUser = $row['idUser'];
-            }
-
-            // Close connection
-            $connection = null;
-
-            return $idUser;
-
-        } catch(PDOException $e){
-            echo $e->getMessage();
+        // Browse the results
+        foreach ($statement as $row) {
+            $idUser = $row['idUser'];
         }
+
+        return $idUser;
 
     }
 

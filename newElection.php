@@ -2,6 +2,8 @@
 
     session_start();
 
+    require 'base.php';
+
     if(!isset($_SESSION['user']) && !$_SESSION['user']["canOrganize"]) {
         header("Location: index.php");
     }
@@ -117,13 +119,9 @@
 
     function getThemes() {
 
-        $datas = array();
+        require 'base.php';
 
-        $connection = new PDO(
-            "mysql:host=mysql-questiero.alwaysdata.net;dbname=questiero_tierlection",
-            "questiero_tl",
-            "tierlection"
-        );
+        $datas = array();
 
         $query = "SELECT idSet, name FROM itemSet";
         $statement = $connection->prepare($query);
@@ -136,56 +134,41 @@
             array_push($datas, $theme);
         }
 
-        $connection = null;
-
         return $datas;
 
     }
 
     function createElection($name, $startDate, $endDate, $idOrganizator, $idSet) {
 
-        try {
+        require 'base.php';
 
-            $connection = new PDO(
-                "mysql:host=mysql-questiero.alwaysdata.net;dbname=questiero_tierlection",
-                "questiero_tl",
-                "tierlection"
-            );
+        // Creation election
+        $query = "INSERT INTO election (name, startDate, endDate, idOrganizator, idSet) VALUES (:name, :startDate, :endDate, :idOrganizator, :idSet)";
+        $statement = $connection->prepare($query);
 
-            // Creation election
-            $query = "INSERT INTO election (name, startDate, endDate, idOrganizator, idSet) VALUES (:name, :startDate, :endDate, :idOrganizator, :idSet)";
-            $statement = $connection->prepare($query);
+        // Bind value and execute query
+        $statement->bindValue(":name", $name, PDO::PARAM_STR);
+        $statement->bindValue(":startDate", $startDate, PDO::PARAM_STR);
+        $statement->bindValue(":endDate", $endDate, PDO::PARAM_STR);
+        $statement->bindValue(":idOrganizator", $idOrganizator, PDO::PARAM_INT);
+        $statement->bindValue("idSet", $idSet, PDO::PARAM_INT);
 
-            // Bind value and execute query
-            $statement->bindValue(":name", $name, PDO::PARAM_STR);
-            $statement->bindValue(":startDate", $startDate, PDO::PARAM_STR);
-            $statement->bindValue(":endDate", $endDate, PDO::PARAM_STR);
-            $statement->bindValue(":idOrganizator", $idOrganizator, PDO::PARAM_INT);
-            $statement->bindValue("idSet", $idSet, PDO::PARAM_INT);
+        $statement->execute();
 
-            $statement->execute();
+        // Get election ID
+        $query = "SELECT COUNT(*) FROM election";
+        $statement = $connection->prepare($query);
 
-            // Get election ID
-            $query = "SELECT COUNT(*) FROM election";
-            $statement = $connection->prepare($query);
+        // Bind value and execute query
+        $statement->bindValue(":username", $username, PDO::PARAM_STR);
+        $statement->execute();
 
-            // Bind value and execute query
-            $statement->bindValue(":username", $username, PDO::PARAM_STR);
-            $statement->execute();
-
-            // Browse the results
-            foreach ($statement as $row) {
-                $idElection = $row['COUNT(*)'];
-            }
-
-            // Close connection
-            $connection = null;
-
-            return $idElection;
-
-        } catch(PDOException $e){
-            echo $e->getMessage();
+        // Browse the results
+        foreach ($statement as $row) {
+            $idElection = $row['COUNT(*)'];
         }
+
+        return $idElection;
 
     }
 

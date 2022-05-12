@@ -67,13 +67,9 @@
 
     function getElectionList() {
 
-        $datas = array();
+        require 'base.php';
 
-        $connection = new PDO(
-            "mysql:host=mysql-questiero.alwaysdata.net;dbname=questiero_tierlection",
-            "questiero_tl",
-            "tierlection"
-        );
+        $datas = array();
 
         $query = "SELECT e.name, e.startDate, e.endDate, u.username, e.idElection FROM election e, user u WHERE u.idUser = e.idOrganizator";
         $statement = $connection->prepare($query);
@@ -91,8 +87,6 @@
                 "idElection" => $row['idElection']];
             array_push($datas, $temp);
         }
-
-        $connection = null;
 
         return $datas;
 
