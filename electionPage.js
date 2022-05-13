@@ -128,7 +128,7 @@ function updateVotes() {
 	var path = "updateVotes.php?idElection=" + idElection;
 
 	Object.keys(votes).forEach(name => {
-		var value = "&" + name + "=" + votes[name];
+		var value = "&" + name.replace(/ /g,'') + "=" + votes[name];
 		path += value;
 	})
 

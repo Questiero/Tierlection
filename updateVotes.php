@@ -21,12 +21,13 @@
 
     $items = array();
 	foreach($statement as $row) {
-		if(isset($_GET[$row["name"]])) {
-			increment($row["idItem"], $_GET[$row["name"]]);
+		if(isset($_GET[str_replace(" ", "", $row["name"])])) {
+            echo $row["name"] . " " . $_GET[str_replace(" ", "", $row["name"])] . ";";
+			increment($row["idItem"], $_GET[str_replace(" ", "", $row["name"])]);
+            array_push($items, ["name" => str_replace(" ", "", $row["name"])]);
 		} else {
 			header ("Location: index.php");
 		}
-  		array_push($items, ["name" => $row["name"]]);
 	}
 
     participate();
