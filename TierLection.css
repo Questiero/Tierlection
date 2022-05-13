@@ -250,6 +250,10 @@ button{
 	top: 75%;
 }
 
+#card-left{
+	background-color: red;
+}
+
 
 #titre > p{
 	background-color: lavender;
@@ -262,5 +266,18 @@ button{
 	text-align: center;
 	font-family: "roboto-medium";
 	font-size: 1.7em;
+}
+
+#card-left{
+	position: relative;
+	float: left;
+	border-radius: 10px ;
+	border: solid grey ;
+	height: 185px;
+	width: 160px;
+	padding: 14px;
+	margin: 14px;
+
+	background-color: lavender;
 }
 
