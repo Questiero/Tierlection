@@ -263,3 +263,9 @@ button{
 	float: right;
 	margin-right: 500px;
 }
+
+.tierlist-img {
+	position: relative;
+	float: left;
+	height: 75px;
+}
