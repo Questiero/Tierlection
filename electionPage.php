@@ -28,12 +28,48 @@
     <script type="text/javascript">
         var idElection = <?php echo $_GET["idElection"]; ?>;
         loadJSON(idElection);
+        
     </script>
+
+
+
+    <div id="titre">
+        <img src="data/TierLection-Logo.png">
+        <h2><?php echo $_GET[getNameElection()]; ?></h2>
+        <div id="profile">
+                    <form action="profile.php">
+                        <button type="submit">Mon profil</button>  
+                    </form>
+                    <form action="disconnect.php">
+                        <button type="submit">Déconnexion</button>
+                    </form>
+
+    </div>
+
+   
 
 </body>
 </html>
 
 <?php 
+    
+    function getNameElection() {
+
+        require 'base.php';
+
+        $datas = array();
+
+        $query = "SELECT e.name FROM election e, user u WHERE e.idElection = idElection";
+        $statement = $connection->prepare($query);
+
+        // Execute query
+        $statement->execute();
+
+        return $datas;
+
+    }
+
+
 
     function userParticipated() {
 

@@ -145,7 +145,7 @@ table {
   border-collapse: collapse;
   border: 3px solid purple;
   text-align: center;
-  margin: auto;*
+  margin: auto;
   background-color: lavender;
 
   position: fixed;
@@ -156,6 +156,7 @@ table {
 
 
 }
+
 
 
 th {
@@ -170,6 +171,8 @@ th, td {
 
 td{
 	border-bottom: 1px solid grey;
+	text-align: center;
+
 }
 
 button{
@@ -201,4 +204,26 @@ button{
 	margin-top: 50px;
 	height: 450px;
 	border: 1px solid red;
+}
+
+
+
+#card-left > img{
+	position: fixed;
+	left : 30%;
+}
+
+
+#card-right > img{
+	position: fixed;
+	left : 70%;
+}
+
+.card >img{
+	position: fixed;
+	top: 30%;
+}
+
+#card-name-left{
+	color: red;
 }
