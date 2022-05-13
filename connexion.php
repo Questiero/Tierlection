@@ -17,6 +17,10 @@
 </head>
 <body>
 
+    <div id="titre">
+        <img id="tierlection-logo" src="data/TierLection-Logo.png">
+    </div>
+
     <div class="panel">
         <form action="connexion.php" method="post">
             <div id="valeurs">
@@ -69,6 +73,8 @@
         ?>
 
     </div>
+
+    <script type="text/javascript" src="logoIndex.js"></script>
 
 </body>
 </html>

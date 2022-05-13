@@ -48,7 +48,7 @@
 
     <div id="titre">
         <h2><?php echo getNameElection() . " (" . numberParticipants() . " participants)"; ?></h2>
-        <img src="data/TierLection-Logo.png">
+        <img id="tierlection-logo" src="data/TierLection-Logo.png">
     </div>
     
     <div id="profile">
@@ -148,6 +148,8 @@
         </tr>
 
     </table>
+
+    <script type="text/javascript" src="logoIndex.js"></script>
 
 </body>
 </html>

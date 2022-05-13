@@ -1,0 +1,1 @@
+document.getElementById("tierlection-logo").addEventListener("click", function() {window.location.href = "index.php";});

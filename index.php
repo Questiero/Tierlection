@@ -16,7 +16,7 @@
         echo "
         <div class=\"general\">
             <div id=\"titre\">
-                 <img src=\"data/TierLection-Logo.png\">
+                 <img id=\"tierlection-logo\" src=\"data/TierLection-Logo.png\">
                  <h1>BIENVENUE CHEZ TIERLECTION</h1>
                     <div id=\"connexion\">
                         <form action=\"connexion.php\">
@@ -50,7 +50,7 @@
         echo "
         <div class=\"general\">
             <div id=\"titre\">
-                <img src=\"data/TierLection-Logo.png\">
+                <img id=\"tierlection-logo\" src=\"data/TierLection-Logo.png\">
                 <h1>BIENVENUE CHEZ TIERLECTION</h1>
                 <div id=\"profile\">
                     <form action=\"profile.php\">
@@ -86,6 +86,8 @@
     }
 
     ?>
+
+    <script type="text/javascript" src="logoIndex.js"></script>
 
 </body>
 </html>

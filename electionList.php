@@ -48,7 +48,7 @@
     </table>
 
     <div id="titre">
-        <img src="data/TierLection-Logo.png">
+        <img id="tierlection-logo" src="data/TierLection-Logo.png">
         <h2>Liste des votes</h2>
         <div id="profile">
                     <form action="profile.php">
@@ -59,6 +59,8 @@
                     </form>
 
     </div>
+
+    <script type="text/javascript" src="logoIndex.js"></script>
         
 </body>
 </html>

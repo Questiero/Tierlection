@@ -20,7 +20,7 @@
 <body>
 
     <div id="titre">
-        <img src="data/TierLection-Logo.png">
+        <img id="tierlection-logo" src="data/TierLection-Logo.png">
         <h2>Nouveau vote</h2>
         <div id="profile">
                     <form action="profile.php">
@@ -115,6 +115,8 @@
         ?>
 
     </div>
+
+    <script type="text/javascript" src="logoIndex.js"></script>
 
 </body>
 </html>

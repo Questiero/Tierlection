@@ -34,7 +34,7 @@
 
 
     <div id="titre">
-        <img src="data/TierLection-Logo.png">
+        <img id="tierlection-logo" src="data/TierLection-Logo.png">
         <h2><?php echo getNameElection(); ?></h2>
         <p> Choisis ton préféré en cliquant dessus : </p>
         <div id="nbrVotes"></div>
@@ -48,6 +48,8 @@
             <button type="submit">Déconnexion</button>
         </form>
     </div>
+
+    <script type="text/javascript" src="logoIndex.js"></script>
 
 </body>
 </html>
