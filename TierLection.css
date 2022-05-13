@@ -64,19 +64,22 @@ img{
 
 }
 
-#titre > h2{
-	font-family: "roboto-medium";
 
-	position: fixed;
-	top: 5%;
-	left: 40%;
-   
+
+
+#titre > h2{
+	margin-left: auto;
+	margin-right: auto;
+	width: 1460px;
+
+	font-family: "roboto-medium";
     font-size: 2.3em;
 
     text-decoration: overline solid purple;
-
-
+	text-align: center;
 }
+
+
 
 #introduction, .panel{
 	background-color: lavender;
@@ -108,6 +111,7 @@ input{
 #profile{
 	position: fixed;
 	right: 0;
+	top: 0;
 }
 
 .panel{
@@ -139,7 +143,7 @@ input{
 
 
 table {
-
+	table-layout: fixed;
   
   width: 75%;
   border-collapse: collapse;
@@ -198,32 +202,65 @@ button{
 
 }
 
-.vote{
-	margin: auto;
-	width: 200px;
-	margin-top: 50px;
-	height: 450px;
-	border: 1px solid red;
-}
+
 
 
 
 #card-left > img{
 	position: fixed;
-	left : 30%;
+	left : 25%;
 }
 
 
 #card-right > img{
-	position: fixed;
-	left : 70%;
+	left : 59%;
 }
 
 .card >img{
-	position: fixed;
-	top: 30%;
+	top: 40%;
 }
 
 #card-name-left{
-	color: red;
+	font-family: "organic";
+	text-transform: uppercase;
+	position: fixed;
+	left: 30%;
+	top: 32%;
 }
+
+#card-name-right{
+	font-family: "organic";
+	text-transform: uppercase;
+	position: fixed;
+	left: 64%;
+	top: 32%;
+}
+
+#card-description-left{
+	font-family: "roboto-medium";
+	position: fixed;
+	left: 25%;
+	top: 75%;
+}
+
+#card-description-right{
+	font-family: "roboto-medium";
+	position: fixed;
+	left: 59%;
+	top: 75%;
+}
+
+
+#titre > p{
+	background-color: lavender;
+	border-radius: 30px;
+
+	position: fixed;
+	top: 15%;
+	left: 34%;
+
+	text-align: center;
+	font-family: "roboto-medium";
+	font-size: 1.7em;
+}
+

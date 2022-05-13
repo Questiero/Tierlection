@@ -89,7 +89,7 @@ function generateCards(tuple) {
 	var cardLeft = document.getElementById("card-left");
 	cardLeft.innerHTML = "";
 
-	var nameLeft = document.createElement("p");
+	var nameLeft = document.createElement("div");
 	nameLeft.className = "card-name";
 	nameLeft.id = "card-name-left";
 	nameLeft.innerHTML = tuple[0].name;

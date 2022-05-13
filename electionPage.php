@@ -36,6 +36,7 @@
     <div id="titre">
         <img src="data/TierLection-Logo.png">
         <h2><?php echo getNameElection(); ?></h2>
+        <p> Choisis ton préféré en cliquant dessus : </p>
         <div id="profile">
                     <form action="profile.php">
                         <button type="submit">Mon profil</button>  
