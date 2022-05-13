@@ -94,7 +94,7 @@
                     $endMonth = intval(substr($_POST["endDate"], 5, -3));
                     $endDay = intval(substr($_POST["endDate"], 8));
 
-                    if($endYear < $todayYear || ($endYear == $todayYear && ($endMonth < $todayMonth || ($endMonth == $todayMonth && $endDay < $todayDay)))) {
+                    if(($endYear < $todayYear || ($endYear == $todayYear && ($endMonth < $todayMonth || ($endMonth == $todayMonth && $endDay < $todayDay)))) || $endYear > $startYear || ($endYear == $startYear && ($endMonth > $startMonth || ($endMonth == $startMonth && $endMonth > $startDay))) {
                         echo "<p class='errors'> Date de fin incorrecte. </p>";
                     } else {
 
