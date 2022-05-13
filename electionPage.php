@@ -85,7 +85,7 @@
 
         // Browse the results
         foreach ($statement as $row) {
-            return($row['COUNT(*)'] == 0);
+            return((bool) $row['COUNT(*)']);
         }
 
     }

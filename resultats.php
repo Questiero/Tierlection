@@ -3,7 +3,7 @@
     session_start();
 
     if(!isset($_SESSION['user']) || !isset($_GET["idElection"]) || !userParticipated()) {
-        //header("Location: index.php");
+        header("Location: index.php");
     }
 
     $rankedItems = ["S" => array(),
@@ -47,7 +47,7 @@
 <body>
 
     <div id="titre">
-        <h2><?php echo getNameElection(); ?></h2>
+        <h2><?php echo getNameElection() . " (" . numberParticipants() . " participants)"; ?></h2>
         <img src="data/TierLection-Logo.png">
     </div>
     
@@ -186,7 +186,7 @@
 
         // Browse the results
         foreach ($statement as $row) {
-            return($row['COUNT(*)'] == 0);
+            return((bool) $row['COUNT(*)']);
         }
 
     }
