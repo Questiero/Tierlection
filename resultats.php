@@ -64,7 +64,7 @@
         
         <tr>
             <th>S</th>
-            <td>
+            <td class="tierlist-td">
                 
                 <?php 
 
@@ -78,7 +78,7 @@
         </tr>
         <tr>
             <th>A</th>
-            <td>
+            <td class="tierlist-td">
                 
                 <?php 
 
@@ -92,7 +92,7 @@
         </tr>
         <tr>
             <th>B</th>
-            <td>
+            <td class="tierlist-td">
                 
                 <?php 
 
@@ -106,7 +106,7 @@
         </tr>
         <tr>
             <th>C</th>
-            <td>
+            <td class="tierlist-td">
                 
                 <?php 
 
@@ -120,7 +120,7 @@
         </tr>
         <tr>
             <th>D</th>
-            <td>
+            <td class="tierlist-td">
                 
                 <?php 
 
@@ -134,7 +134,7 @@
         </tr>
         <tr>
             <th>E</th>
-            <td>
+            <td class="tierlist-td">
                 
                 <?php 
 
@@ -144,7 +144,7 @@
 
                 ?>
 
-            </td>
+            </td class="tierlist-td">
         </tr>
 
     </table>

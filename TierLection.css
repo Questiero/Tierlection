@@ -269,3 +269,7 @@ button{
 	float: left;
 	height: 75px;
 }
+
+.tierlist-td {
+	height: 75px;
+}
