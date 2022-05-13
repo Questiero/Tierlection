@@ -35,7 +35,7 @@
 
     <div id="titre">
         <img src="data/TierLection-Logo.png">
-        <h2><?php echo $_GET[getNameElection()]; ?></h2>
+        <h2><?php echo getNameElection(); ?></h2>
         <div id="profile">
                     <form action="profile.php">
                         <button type="submit">Mon profil</button>  
