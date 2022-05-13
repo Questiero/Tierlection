@@ -4,7 +4,7 @@
 
     if(!isset($_SESSION['user']) || !isset($_GET["idElection"]) || early()) {
         header("Location: index.php");
-    } else if(!userParticipated() || late()) {
+    } else if(userParticipated() || late()) {
         header("Location: resultats.php?idElection=" . $_GET["idElection"]);
     }
 
@@ -37,6 +37,7 @@
         <img src="data/TierLection-Logo.png">
         <h2><?php echo getNameElection(); ?></h2>
         <p> Choisis ton préféré en cliquant dessus : </p>
+        <div id="nbrVotes"></div>
     </div>
 
     <div id="profile">

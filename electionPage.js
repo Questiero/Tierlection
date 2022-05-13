@@ -121,6 +121,8 @@ function generateCards(tuple) {
 	descriptionRight.innerHTML = tuple[1].description;
 	cardRight.append(descriptionRight);
 
+	document.getElementById('nbrVotes').innerHTML = "(" + (nbrVote + 1) + "/" + itemTuple.length + ")";
+
 }
 
 function updateVotes() {
