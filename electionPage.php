@@ -57,15 +57,16 @@
 
         require 'base.php';
 
-        $datas = array();
-
-        $query = "SELECT e.name FROM election e, user u WHERE e.idElection = idElection";
+        $query = "SELECT name FROM election WHERE idElection = :idElection";
         $statement = $connection->prepare($query);
 
-        // Execute query
+        // Bind value and execute query
+        $statement->bindValue(":idElection", $_GET["idElection"], PDO::PARAM_STR);
         $statement->execute();
 
-        return $datas;
+        foreach($statement as $row) {
+            return $row["name"];
+        }
 
     }
 
