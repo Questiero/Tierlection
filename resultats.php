@@ -2,7 +2,7 @@
 
     session_start();
 
-    if(!isset($_SESSION['user']) || !isset($_GET["idElection"]) || !userParticipated()) {
+    if(!userParticipated() && (!isset($_SESSION['user']) || !isset($_GET["idElection"]) || !userParticipated())) {
         header("Location: index.php");
     }
 
@@ -193,6 +193,26 @@
 
     }
 
+    function userOrganized() {
+
+        require 'base.php';
+
+        // Get election ID
+        $query = "SELECT COUNT(*) FROM election WHERE idOrganizator = :idUser AND idElection = :idElection";
+        $statement = $connection->prepare($query);
+
+        // Bind value and execute query
+        $statement->bindValue(":idUser", $_SESSION["user"]["idUser"], PDO::PARAM_INT);
+        $statement->bindValue(":idElection", $_GET["idElection"], PDO::PARAM_INT);
+        $statement->execute();
+
+        // Browse the results
+        foreach ($statement as $row) {
+            return((bool) $row['COUNT(*)']);
+        }
+
+    }
+
     function numberParticipants() {
 
         require 'base.php';
@@ -242,10 +262,10 @@
     }
 
     function compareItems($a, $b) {
-    if ($a == $b) {
-        return 0;
+        if ($a == $b) {
+            return 0;
+        }
+        return ($a["nbrVotes"] < $b["nbrVotes"]) ? -1 : 1;
     }
-    return ($a["nbrVotes"] < $b["nbrVotes"]) ? -1 : 1;
-}
 
 ?>

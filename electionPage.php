@@ -4,7 +4,7 @@
 
     if(!isset($_SESSION['user']) || !isset($_GET["idElection"]) || early()) {
         header("Location: index.php");
-    } else if(userParticipated() || late()) {
+    } else if(userParticipated() || late() || userOrganized()) {
         header("Location: resultats.php?idElection=" . $_GET["idElection"]);
     }
 
@@ -154,6 +154,26 @@
         }
 
         return ($endYear < $todayYear || ($endYear >= $todayYear && ($endMonth < $todayMonth || ($endMonth >= $todayMonth && $endDay < $todayDay))));
+
+    }
+
+    function userOrganized() {
+
+        require 'base.php';
+
+        // Get election ID
+        $query = "SELECT COUNT(*) FROM election WHERE idOrganizator = :idUser AND idElection = :idElection";
+        $statement = $connection->prepare($query);
+
+        // Bind value and execute query
+        $statement->bindValue(":idUser", $_SESSION["user"]["idUser"], PDO::PARAM_INT);
+        $statement->bindValue(":idElection", $_GET["idElection"], PDO::PARAM_INT);
+        $statement->execute();
+
+        // Browse the results
+        foreach ($statement as $row) {
+            return((bool) $row['COUNT(*)']);
+        }
 
     }
 
