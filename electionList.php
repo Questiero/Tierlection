@@ -18,7 +18,7 @@
 <body>
 
 
-    <table>
+    <table id="table-list">
         <tr>
             <th>Nom</th>
             <th>Date de début</th>

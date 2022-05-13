@@ -2,7 +2,7 @@
 
     session_start();
 
-    if(!userParticipated() && (!isset($_SESSION['user']) || !isset($_GET["idElection"]) || !userParticipated())) {
+    if(!userOrganized() && (!isset($_SESSION['user']) || !isset($_GET["idElection"]) || !userParticipated())) {
         header("Location: index.php");
     }
 
@@ -60,7 +60,7 @@
         </form>
     </div>
 
-    <table>
+    <table id="table-result">
         
         <tr>
             <th>S</th>

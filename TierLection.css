@@ -138,8 +138,6 @@ input{
 	bottom: 18%;
 }
 
-
-
 table {
 	table-layout: fixed;
   
@@ -148,18 +146,17 @@ table {
   border: 3px solid purple;
   text-align: center;
   margin: auto;
-  background-color: lavender;
 
-  position: fixed;
-  top: 30%;
-  left: 12%;
+  float: top;
 
   background-color: lavender;
-
-
 }
 
-
+#table-list, #table-result {
+  position: absolute;
+  top: 30%;
+  left: 12%;
+}
 
 th {
   background-color: mediumpurple;
@@ -171,7 +168,7 @@ th, td {
 	border-right: 3px solid purple;
 }
 
-td{
+td {
 	border-bottom: 1px solid grey;
 	text-align: center;
 
@@ -223,16 +220,29 @@ button{
 	top: 20%;
 }
 
-#titre > p{
+p {
 	background-color: lavender;
 	border-radius: 30px;
 
+	text-align: center;
+	font-family: "roboto-medium";
+}
+
+#voteTxt {
 	position: fixed;
 	top: 15%;
 	left: 34%;
+	font-size: 1.7em;
+}
 
-	text-align: center;
-	font-family: "roboto-medium";
+.profileTxt {
+	display: table;
+
+	margin: auto;
+
+	margin-top: 25px;
+	margin-bottom: 25px;
+
 	font-size: 1.7em;
 }
 

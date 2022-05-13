@@ -30,8 +30,8 @@
 
     </div>
 
-    <p>Elections que vous avez organisées</p>
     <table>
+        <p class="profileTxt">Elections que vous avez organisées</p>
         <tr>
             <th>Nom</th>
             <th>Date de début</th>
@@ -56,8 +56,8 @@
 
     </table>
 
-    <p>Elections auxquelles vous avez participé</p>
     <table>
+        <p class="profileTxt">Elections auxquelles vous avez participé</p>
         <tr>
             <th>Nom</th>
             <th>Date de début</th>
