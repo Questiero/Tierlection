@@ -44,7 +44,7 @@
                     <form action="disconnect.php">
                         <button type="submit">Déconnexion</button>
                     </form>
-
+        </div>
     </div>
 
    

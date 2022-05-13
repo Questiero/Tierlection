@@ -23,7 +23,7 @@ body{
 	font-family: "roboto-medium";
 }
 
-img{
+#titre > img{
 	width: 250px;
 	float: left;
 	position: fixed;
@@ -47,6 +47,7 @@ img{
 
 #titre{
 	position: fixed;
+	text-align: center;
 	top: 0;
 }
 
@@ -63,8 +64,6 @@ img{
 
 
 }
-
-
 
 
 #titre > h2{
@@ -87,8 +86,7 @@ img{
 
 	position: fixed;
 	top: 35%;
-	margin top: 800px;
-
+	
 	text-align: center;
 	margin-left: 40px;
 	margin-right: 40px;
@@ -202,58 +200,28 @@ button{
 
 }
 
-
-
-
-
-#card-left > img{
-	position: fixed;
-	left : 25%;
-}
-
-
-#card-right > img{
-	left : 59%;
-}
-
-.card >img{
-	top: 40%;
-}
-
-#card-name-left{
+.card-name{
 	font-family: "organic";
 	text-transform: uppercase;
-	position: fixed;
-	left: 30%;
-	top: 32%;
+	position: relative;
+	width: 100%;
+	text-align: center;
 }
 
-#card-name-right{
-	font-family: "organic";
-	text-transform: uppercase;
-	position: fixed;
-	left: 64%;
-	top: 32%;
+.card-img {
+	position: relative;
+	width: 80%;
+	top: 15%;
+	left: 10%;
 }
 
-#card-description-left{
+.card-description {
 	font-family: "roboto-medium";
-	position: fixed;
-	left: 25%;
-	top: 75%;
+	position: relative;
+	width: 100%;
+	text-align: center;
+	top: 20%;
 }
-
-#card-description-right{
-	font-family: "roboto-medium";
-	position: fixed;
-	left: 59%;
-	top: 75%;
-}
-
-#card-left{
-	background-color: red;
-}
-
 
 #titre > p{
 	background-color: lavender;
@@ -268,16 +236,30 @@ button{
 	font-size: 1.7em;
 }
 
-#card-left{
+.card{
 	position: relative;
-	float: left;
 	border-radius: 10px ;
 	border: solid grey ;
-	height: 185px;
-	width: 160px;
+	height: 450px;
+	width: 300px;
 	padding: 14px;
 	margin: 14px;
+
+	top: 250px;
 
 	background-color: lavender;
 }
 
+.card:hover {
+	background-color: grey;
+}
+
+#card-left {
+	float: left;
+	margin-left: 500px;
+}
+
+#card-right {
+	float: right;
+	margin-right: 500px;
+}
