@@ -2,11 +2,11 @@
 
     session_start();
 
-    /*if(!isset($_SESSION['user']) || !isset($_GET["idElection"]) || early()) {
+    if(!isset($_SESSION['user']) || !isset($_GET["idElection"]) || early()) {
         header("Location: index.php");
     } else if(userParticipated() || late()) {
         header("Location: resultats.php?idElection=" . $_GET["idElection"]);
-    }*/
+    }
 
 ?>
 
@@ -50,7 +50,7 @@
 
         // Browse the results
         foreach ($statement as $row) {
-            return($row['COUNT(*)'] != 0);
+            return($row['COUNT(*)'] == 0);
         }
 
     }
@@ -83,7 +83,7 @@
             $startDay = intval(substr($startDate, 8));
         }
 
-        return ($startYear > $todayYear || ($startYear == $todayYear && ($startMonth > $todayMonth || ($startMonth == $todayMonth && $startDay > $todayDay))));
+        return ($startYear > $todayYear || ($startYear <= $todayYear && ($startMonth > $todayMonth || ($startMonth <= $todayMonth && $startDay > $todayDay))));
 
     }
 
@@ -112,10 +112,10 @@
             $endDate = $row["endDate"];
             $endYear = intval(substr($endDate, 2, -6));
             $endMonth = intval(substr($endDate, 5, -3));
-            $startDay = intval(substr($endDate, 8));
+            $endDay = intval(substr($endDate, 8));
         }
 
-        return ($endYear < $todayYear || ($endYear == $todayYear && ($endMonth < $todayMonth || ($endMonth == $todayMonth && $endDay < $todayDay))));
+        return ($endYear < $todayYear || ($endYear >= $todayYear && ($endMonth < $todayMonth || ($endMonth >= $todayMonth && $endDay < $todayDay))));
 
     }
 

@@ -86,7 +86,7 @@
                 $startMonth = intval(substr($_POST["startDate"], 5, -3));
                 $startDay = intval(substr($_POST["startDate"], 8));
 
-                if($startYear < $todayYear || ($startYear == $todayYear && ($startMonth < $todayMonth || ($startMonth == $todayMonth && $startDay < $todayDay)))) {
+                if($startYear < $todayYear || ($startYear >= $todayYear && ($startMonth < $todayMonth || ($startMonth >= $todayMonth && $startDay < $todayDay)))) {
                     echo "<p class='errors'> Date de début incorrecte. </p>";
                 } else {
 
@@ -94,7 +94,7 @@
                     $endMonth = intval(substr($_POST["endDate"], 5, -3));
                     $endDay = intval(substr($_POST["endDate"], 8));
 
-                    if(($endYear < $todayYear || ($endYear == $todayYear && ($endMonth < $todayMonth || ($endMonth == $todayMonth && $endDay < $todayDay)))) || $endYear > $startYear || ($endYear == $startYear && ($endMonth > $startMonth || ($endMonth == $startMonth && $endMonth > $startDay))) {
+                    if(($endYear < $todayYear || ($endYear >= $todayYear && ($endMonth < $todayMonth || ($endMonth >= $todayMonth && $endDay < $todayDay)))) || $endYear > $startYear || ($endYear <= $startYear && ($endMonth > $startMonth || ($endMonth <= $startMonth && $endMonth > $startDay))) {
                         echo "<p class='errors'> Date de fin incorrecte. </p>";
                     } else {
 

@@ -39,7 +39,7 @@
 
         // Browse the results
         foreach ($statement as $row) {
-            return($row['COUNT(*)'] != 0);
+            return($row['COUNT(*)'] == 0);
         }
 
     }
@@ -72,7 +72,7 @@
             $endDay = intval(substr($endDate, 8));
         }
 
-        return ($endYear < $todayYear || ($endYear == $todayYear && ($endMonth < $todayMonth || ($endMonth == $todayMonth && $endDay < $todayDay))));
+        return ($endYear < $todayYear || ($endYear >= $todayYear && ($endMonth < $todayMonth || ($endMonth >= $todayMonth && $endDay < $todayDay))));
 
     }
 
