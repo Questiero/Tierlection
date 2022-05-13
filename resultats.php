@@ -69,7 +69,7 @@
             $endDate = $row["endDate"];
             $endYear = intval(substr($endDate, 2, -6));
             $endMonth = intval(substr($endDate, 5, -3));
-            $startDay = intval(substr($endDate, 8));
+            $endDay = intval(substr($endDate, 8));
         }
 
         return ($endYear < $todayYear || ($endYear == $todayYear && ($endMonth < $todayMonth || ($endMonth == $todayMonth && $endDay < $todayDay))));
