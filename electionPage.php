@@ -2,11 +2,11 @@
 
     session_start();
 
-    if(!isset($_SESSION['user']) || !isset($_GET["idElection"]) || early()) {
+    /*if(!isset($_SESSION['user']) || !isset($_GET["idElection"]) || early()) {
         header("Location: index.php");
-    } else if(/*userParticipated() || */late()) {
+    } else if(userParticipated() || late()) {
         header("Location: resultats.php?idElection=" . $_GET["idElection"]);
-    }
+    }*/
 
 ?>
 
