@@ -291,3 +291,15 @@ p {
 .tierlist-th {
 	width: 75px;
 }
+
+.newItemName {
+	margin-top: 10px;
+}
+
+.newItemDescription {
+	margin-bottom: 10px;
+}
+
+#panelNewTheme {
+	top: 20%;
+}

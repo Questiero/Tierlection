@@ -32,7 +32,7 @@
 
     </div>
 
-    <div class="panel">
+    <div class="panel" id="panelNewTheme">
         <form action="uploadTheme.php" method="post">
             <div id="valeurs">
                 <div>
@@ -41,7 +41,7 @@
                 </div>
                 <div id="newItems">
                     <div id="item1">
-                        <div>
+                        <div class="newItemName">
                             <label for="item1-name">Nom du 1er item</label>
                             <input type="text" id="item1-name" name="item1-name" size="20">
                         </div>
@@ -49,7 +49,7 @@
                             <label for="item1-description">Description du 1er item</label>
                             <input type="text" id="item1-description" name="item1-description" size="20">
                         </div>
-                        <div>
+                        <div class="newItemDescription">
                             <label for="item1-file">Image du 1er item</label>
                             <input type="file" id="item1-file" name="item1-file" size="20">
                         </div>
@@ -119,7 +119,7 @@
 
             newItems = document.getElementById("newItems");
             newItems.innerHTML += '<div id="item' + nbrItems + '">\
-                        <div>\
+                        <div class="newItemName">\
                             <label for="item' + nbrItems + '-name">Nom du ' + nbrItems + 'er item</label>\
                             <input type="text" id="item' + nbrItems + '-name" name="item' + nbrItems + '-name" size="20">\
                         </div>\
@@ -127,7 +127,7 @@
                             <label for="item' + nbrItems + '-description">Description du ' + nbrItems + 'er item</label>\
                             <input type="text" id="item' + nbrItems + '-description" name="item' + nbrItems + '-description" size="20">\
                         </div>\
-                        <div>\
+                        <div class="newItemDescription">\
                             <label for="item' + nbrItems + '-file">Image du ' + nbrItems + 'er item</label>\
                             <input type="file" id="item' + nbrItems + '-file" name="item' + nbrItems + '-file" size="20">\
                         </div>\
