@@ -127,12 +127,16 @@ function generateCards(tuple) {
 
 function updateVotes() {
 
-	var path = "updateVotes.php?idElection=" + idElection;
+	var path = "/updateVotes.php?idElection=" + idElection;
 
 	Object.keys(votes).forEach(name => {
 		var value = "&" + name.replace(/ /g,'') + "=" + votes[name];
 		path += value;
 	})
 
-	window.location.pathname = path;
+	window.location.href = window.location.href.substr(0, window.location.href.lastIndexOf("/")) + path;
+}
+
+function format() {
+
 }
