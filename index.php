@@ -33,16 +33,9 @@
                 <p>
                     Tierlection est une application révolutionnaire qui vous permettra de réaliser une élection par comparaisons qui s'affichera sous forme de Tier List ! <br>
                     En effet, lors d'un debat entre amis, sur des sujets divers et variés, il est souvent difficile de se mettre d'accord et de partager des avis communs <br>
-
                     Et c'est là que nous entrons en scène ! Réaliser dès maintenant une élections par comparaison où chaque utilisateurs contribura à créer une Tier List unique et incontestable ! <br>
+                    Ce site a été créé par Jules, Chloé, Alexandre et Mathilde, quatre étudiants en L2 Mathématiques Informatique Appliquées aux Sciences Humaines et Sociales parcours Sciences Cognitives dans le cadre d'un projet Web de l'année 2021 - 2022.
                 </p>
-            </div>
-
-            <div id=\"credits\">
-            <form action=\"Credits.php\">
-                <button type=\"submit\">Crédits</button>
-            </form>
-                <button type=\"submit\">FAQ</button>
             </div>
         </div>";
 
@@ -68,8 +61,8 @@
                 <p>
                     Tierlection est une application révolutionnaire qui vous permettra de réaliser une élection par comparaisons qui s'affichera sous forme de Tier List ! <br>
                     En effet, lors d'un debat entre amis, sur des sujets divers et variés, il est souvent difficile de se mettre d'accord et de partager des avis communs <br>
-
                     Et c'est là que nous entrons en scène ! Réaliser dès maintenant une élections par comparaison où chaque utilisateurs contribura à créer une Tier List unique et incontestable ! <br>
+                    Ce site a été créé par Jules, Chloé, Alexandre et Mathilde, quatre étudiants en L2 Mathématiques Informatique Appliquées aux Sciences Humaines et Sociales parcours Sciences Cognitives dans le cadre d'un projet Web de l'année 2021 - 2022.
                 </p>
             </div>
 

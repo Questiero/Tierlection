@@ -62,7 +62,7 @@ body{
 
 }
 
-#titre > h2, #presentation > h2 {
+#titre > h2 {
 
 
 	font-family: "roboto-medium";
@@ -71,12 +71,7 @@ body{
 
 }
 
-#presentation{
-	margin-top: 175px;
-}
-
-
-#introduction, .panel, #presentation {
+#introduction, .panel {
 	background-color: lavender;
 	border-radius: 30px;
 
