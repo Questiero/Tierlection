@@ -4,6 +4,8 @@
 
     if(!isset($_SESSION['user']) || !isset($_GET["idElection"])) {
         header("Location: index.php");
+    } else if (userParticipated()) {
+        header("Location: resultats.php?idElection=" . $_GET["idElection"]);
     }
 
     require 'base.php';
@@ -22,7 +24,6 @@
     $items = array();
 	foreach($statement as $row) {
 		if(isset($_GET[str_replace(" ", "", $row["name"])])) {
-            echo $row["name"] . " " . $_GET[str_replace(" ", "", $row["name"])] . ";";
 			increment($row["idItem"], $_GET[str_replace(" ", "", $row["name"])]);
             array_push($items, ["name" => str_replace(" ", "", $row["name"])]);
 		} else {
@@ -69,5 +70,25 @@
         $statement->execute();
 
 	}
+
+    function userParticipated() {
+
+        require 'base.php';
+
+        // Get election ID
+        $query = "SELECT COUNT(*) FROM participate WHERE idUser = :idUser AND idElection = :idElection";
+        $statement = $connection->prepare($query);
+
+        // Bind value and execute query
+        $statement->bindValue(":idUser", $_SESSION["user"]["idUser"], PDO::PARAM_INT);
+        $statement->bindValue(":idElection", $_GET["idElection"], PDO::PARAM_INT);
+        $statement->execute();
+
+        // Browse the results
+        foreach ($statement as $row) {
+            return((bool) $row['COUNT(*)']);
+        }
+
+    }
 
 ?>
