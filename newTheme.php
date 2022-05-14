@@ -54,12 +54,41 @@
                             <input type="file" id="item1-file" name="item1-file" size="20">
                         </div>
                     </div>
+                    <div id="item2">
+                        <div class="newItemName">
+                            <label for="item2-name">Nom du 2eme item</label>
+                            <input type="text" id="item2-name" name="item2-name" size="20">
+                        </div>
+                        <div>
+                            <label for="item2-description">Description du 2eme item</label>
+                            <input type="text" id="item2-description" name="item2-description" size="20">
+                        </div>
+                        <div class="newItemDescription">
+                            <label for="item2-file">Image du 2eme item</label>
+                            <input type="file" id="item2-file" name="item2-file" size="20">
+                        </div>
+                    </div>
+                    <div id="item3">
+                        <div class="newItemName">
+                            <label for="item3-name">Nom du 3eme item</label>
+                            <input type="text" id="item3-name" name="item3-name" size="20">
+                        </div>
+                        <div>
+                            <label for="item3-description">Description du 3eme item</label>
+                            <input type="text" id="item3-description" name="item3-description" size="20">
+                        </div>
+                        <div class="newItemDescription">
+                            <label for="item3-file">Image du 3eme item</label>
+                            <input type="file" id="item3-file" name="item3-file" size="20">
+                        </div>
+                    </div>
                 </div>
                 <div id="newItemButton">Cliquez ici pour ajouter un item</div>
             </div>
 
             <div id="create">
                 <button type="submit">Créer</button>
+                <input type="hidden" name="nbrItems" id="nbrItems" value="3"></label>
             </div>          
         </form>
     </div>
@@ -111,24 +140,26 @@
     <script type="text/javascript" src="logoIndex.js"></script>
     <script type="text/javascript">
         
-        var nbrItems = 1;
+        var nbrItems = 3;
 
         document.getElementById("newItemButton").addEventListener("click", function() {
 
             nbrItems++;
 
+            document.getElementById("nbrItems").value = "" + nbrItems;
+
             newItems = document.getElementById("newItems");
             newItems.innerHTML += '<div id="item' + nbrItems + '">\
                         <div class="newItemName">\
-                            <label for="item' + nbrItems + '-name">Nom du ' + nbrItems + 'er item</label>\
+                            <label for="item' + nbrItems + '-name">Nom du ' + nbrItems + 'eme item</label>\
                             <input type="text" id="item' + nbrItems + '-name" name="item' + nbrItems + '-name" size="20">\
                         </div>\
                         <div>\
-                            <label for="item' + nbrItems + '-description">Description du ' + nbrItems + 'er item</label>\
+                            <label for="item' + nbrItems + '-description">Description du ' + nbrItems + 'eme item</label>\
                             <input type="text" id="item' + nbrItems + '-description" name="item' + nbrItems + '-description" size="20">\
                         </div>\
                         <div class="newItemDescription">\
-                            <label for="item' + nbrItems + '-file">Image du ' + nbrItems + 'er item</label>\
+                            <label for="item' + nbrItems + '-file">Image du ' + nbrItems + 'eme item</label>\
                             <input type="file" id="item' + nbrItems + '-file" name="item' + nbrItems + '-file" size="20">\
                         </div>\
                     </div>';
