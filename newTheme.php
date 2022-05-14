@@ -33,7 +33,7 @@
     </div>
 
     <div class="panel" id="panelNewTheme">
-        <form action="uploadTheme.php" method="post">
+        <form enctype="multipart/form-data" action="uploadTheme.php" method="post">
             <div id="valeurs">
                 <div>
                     <label for="name">Nom du thème</label>
@@ -49,9 +49,9 @@
                             <label for="item1-description">Description du 1er item</label>
                             <input type="text" id="item1-description" name="item1-description" size="20">
                         </div>
-                        <div class="newItemDescription">
+                        <div class="newItemFile">
                             <label for="item1-file">Image du 1er item</label>
-                            <input type="file" id="item1-file" name="item1-file" size="20">
+                            <input type="file" id="item1-file" name="item1-file" accept="image/png, image/jpeg, image/jpg">
                         </div>
                     </div>
                     <div id="item2">
@@ -63,9 +63,9 @@
                             <label for="item2-description">Description du 2eme item</label>
                             <input type="text" id="item2-description" name="item2-description" size="20">
                         </div>
-                        <div class="newItemDescription">
+                        <div class="newItemFile">
                             <label for="item2-file">Image du 2eme item</label>
-                            <input type="file" id="item2-file" name="item2-file" size="20">
+                            <input type="file" id="item2-file" name="item2-file" accept="image/png, image/jpeg, image/jpg">
                         </div>
                     </div>
                     <div id="item3">
@@ -77,9 +77,9 @@
                             <label for="item3-description">Description du 3eme item</label>
                             <input type="text" id="item3-description" name="item3-description" size="20">
                         </div>
-                        <div class="newItemDescription">
+                        <div class="newItemFile">
                             <label for="item3-file">Image du 3eme item</label>
-                            <input type="file" id="item3-file" name="item3-file" size="20">
+                            <input type="file" id="item3-file" name="item3-file" accept="image/png, image/jpeg, image/jpg">
                         </div>
                     </div>
                 </div>
@@ -97,38 +97,12 @@
 
         <?php
 
-            if(isset($_POST["name"]) && isset($_POST["startDate"]) && isset($_POST["endDate"]) && isset($_POST["theme"])) {
+            if(isset($_GET["done"])) {
 
-                $todayYear = intval(date('y'));
-                $todayMonth = intval(date('m'));
-                $todayDay = intval(date('d'));
-
-                $startYear = intval(substr($_POST["startDate"], 2, -6));
-                $startMonth = intval(substr($_POST["startDate"], 5, -3));
-                $startDay = intval(substr($_POST["startDate"], 8));
-
-                if($startYear < $todayYear || ($startYear >= $todayYear && ($startMonth < $todayMonth || ($startMonth >= $todayMonth && $startDay < $todayDay)))) {
-                    echo "<p class='errors'> Date de début incorrecte. </p>";
+                if($_GET["done"] == 0) {
+                    echo "<p class'errors'>Une erreur est survenue</p>";
                 } else {
-
-                    $endYear = intval(substr($_POST["endDate"], 2, -6));
-                    $endMonth = intval(substr($_POST["endDate"], 5, -3));
-                    $endDay = intval(substr($_POST["endDate"], 8));
-
-                    if(($endYear < $todayYear || ($endYear >= $todayYear && ($endMonth < $todayMonth || ($endMonth >= $todayMonth && $endDay < $todayDay)))) || $endYear > $startYear || ($endYear <= $startYear && ($endMonth > $startMonth || ($endMonth <= $startMonth && $endMonth > $startDay)))) {
-                        echo "<p class='errors'> Date de fin incorrecte. </p>";
-                    } else {
-
-                        $idElection = createElection($_POST["name"], $_POST["startDate"], $_POST["endDate"], $_SESSION["user"]["idUser"], $_POST["theme"]);
-
-                        foreach(getIdItems($idElection) as $item) {
-                            createVotes($idElection, $item["idItem"]);
-                        }
-
-                        header("Location: electionPage.php?idElection=".$idElection);
-
-                    }
-
+                    echo "<p class'errors'>Thème créé avec succès</p>";
                 }
                 
             }
@@ -158,9 +132,9 @@
                             <label for="item' + nbrItems + '-description">Description du ' + nbrItems + 'eme item</label>\
                             <input type="text" id="item' + nbrItems + '-description" name="item' + nbrItems + '-description" size="20">\
                         </div>\
-                        <div class="newItemDescription">\
+                        <div class="newItemFile">\
                             <label for="item' + nbrItems + '-file">Image du ' + nbrItems + 'eme item</label>\
-                            <input type="file" id="item' + nbrItems + '-file" name="item' + nbrItems + '-file" size="20">\
+                            <input type="file" id="item' + nbrItems + '-file" name="item' + nbrItems + '-file" accept="image/png, image/jpeg, image/jpg">\
                         </div>\
                     </div>';
 
