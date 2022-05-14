@@ -21,7 +21,7 @@
 		for($i = 1; $i <= $_POST["nbrItems"]; $i++) {
 
 			if(move_uploaded_file($_FILES["item".$i."-file"]["tmp_name"], $target_dir . basename($_FILES["item".$i."-file"]["name"]))) {
-				createItem($_POST["item".$i."-name"], $_POST["item".$i."-description"], $target_dir . basename($_FILES["item".$i."-file"]["name"])), $idSet);
+				createItem($_POST["item".$i."-name"], $_POST["item".$i."-description"], $target_dir . basename($_FILES["item".$i."-file"]["name"]), $idSet);
 			} else {
 				header("Location: resultats.php?done=0");
 			}
