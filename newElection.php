@@ -55,6 +55,7 @@
 
                         <?php 
 
+                            // Affichage des thèmes disponibles
                             foreach(getThemes() as $theme) {
                                 echo "<option value=\"" . $theme["idSet"] . "\">" . $theme["name"] . "</option>";
                             }
@@ -87,6 +88,7 @@
                 $startMonth = intval(substr($_POST["startDate"], 5, -3));
                 $startDay = intval(substr($_POST["startDate"], 8));
 
+                // Vérification de la validité des dates
                 if($startYear < $todayYear || ($startYear >= $todayYear && ($startMonth < $todayMonth || ($startMonth >= $todayMonth && $startDay < $todayDay)))) {
                     echo "<p class='errors'> Date de début incorrecte. </p>";
                 } else {
@@ -99,12 +101,15 @@
                         echo "<p class='errors'> Date de fin incorrecte. </p>";
                     } else {
 
+                        // Insertion de l'élection dans la base de données
                         $idElection = createElection($_POST["name"], $_POST["startDate"], $_POST["endDate"], $_SESSION["user"]["idUser"], $_POST["theme"]);
 
+                        // Insertion d'un vote pour chaque item dans la base de données
                         foreach(getIdItems($idElection) as $item) {
                             createVotes($idElection, $item["idItem"]);
                         }
 
+                        // Redirection vers la page de l'élection
                         header("Location: electionPage.php?idElection=".$idElection);
 
                     }
@@ -120,6 +125,7 @@
     <script type="text/javascript" src="logoIndex.js"></script>
     <script type="text/javascript">
         
+        // Redirection vers la page de création d'un nouveau thème
         document.getElementById("newTheme").addEventListener("click", function() {window.location.href = "newTheme.php";});
 
     </script>
@@ -129,6 +135,7 @@
 
 <?php 
 
+    // Récupération de la liste des thèmes disponibles
     function getThemes() {
 
         require 'base.php';
@@ -150,6 +157,7 @@
 
     }
 
+    // Insertion d'une éleciton dans la base de données, retourne son id
     function createElection($name, $startDate, $endDate, $idOrganizator, $idSet) {
 
         require 'base.php';
@@ -183,17 +191,16 @@
 
     }
 
+    // Récupération des items en fonction du thème choisi pour l'élection
     function getIdItems($idElection) {
 
         require 'base.php';
 
         $query = "SELECT i.idItem FROM item i, election e WHERE e.idElection = :idElection AND i.idSet = e.idSet";
-
         $statement = $connection->prepare($query);
 
         // Bind value and execute query
         $statement->bindValue(":idElection", $idElection, PDO::PARAM_STR);
-
         $statement->execute();
 
         $items = array();
@@ -205,6 +212,7 @@
 
     }
 
+    // Insertion d'un vote dans la base de données
     function createVotes($idElection, $idItem) {
 
         require 'base.php';

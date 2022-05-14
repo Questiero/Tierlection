@@ -116,6 +116,7 @@
         
         var nbrItems = 3;
 
+        // A chaque clic pour rajouter un item, création de nouvelles div dans le form et incrémentation du nombre d'items
         document.getElementById("newItemButton").addEventListener("click", function() {
 
             nbrItems++;
@@ -140,7 +141,6 @@
 
 
         });
-
 
     </script>
 

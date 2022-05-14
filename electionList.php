@@ -29,8 +29,7 @@
         
         <?php 
 
-
-
+            // Affichage de chaque élection dans le tableau et création d'un bouton permettant d'y accéder
             foreach(getElectionList() as $election) {
 
                 echo "<tr>";
@@ -67,6 +66,7 @@
 
 <?php 
 
+    // Récupération d'une liste des élections: nom, date de début, date de fin, pseudo de l'organisateur et id
     function getElectionList() {
 
         require 'base.php';

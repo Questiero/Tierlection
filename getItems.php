@@ -3,28 +3,37 @@
 	header('content-type: application/json; charset=utf-8');
 	header("Access-Control-Allow-Origin: *");
 
-	require 'base.php';
+	if (isset($_GET["idElection"])) {
 
-	$connection->exec("SET NAMES 'utf8'");
+		require 'base.php';
 
-	$query = "SELECT i.name, i.description, i.icon FROM item i, election e WHERE e.idElection = :idElection AND i.idSet = e.idSet";
+		$connection->exec("SET NAMES 'utf8'");
 
-	$statement = $connection->prepare($query);
+		$query = "SELECT i.name, i.description, i.icon FROM item i, election e WHERE e.idElection = :idElection AND i.idSet = e.idSet";
 
-    // Bind value and execute query
-    $statement->bindValue(":idElection", $_GET["idElection"], PDO::PARAM_STR);
+		$statement = $connection->prepare($query);
 
-    $statement->execute();
+	    // Bind value and execute query
+	    $statement->bindValue(":idElection", $_GET["idElection"], PDO::PARAM_STR);
 
-    $items = array();
-	foreach($statement as $row) {
-  		$item = ["name" => $row["name"],
-  		"description" => $row["description"],
-  		"icon" => $row["icon"]];
-  		array_push($items, $item);
+	    $statement->execute();
+
+	    $items = array();
+		foreach($statement as $row) {
+	  		$item = ["name" => $row["name"],
+	  		"description" => $row["description"],
+	  		"icon" => $row["icon"]];
+	  		array_push($items, $item);
+		}
+
+		// Convert to JSON  
+		echo json_encode($items, JSON_UNESCAPED_SLASHES);
+
+	} else {
+
+	    // Redirection vers la page d'accueil
+	    header("Location: index.php")
+
 	}
-
-	// Convert to JSON  
-	echo json_encode($items, JSON_UNESCAPED_SLASHES);
 
 ?>

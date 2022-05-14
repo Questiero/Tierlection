@@ -47,6 +47,7 @@
 
             if(isset($_POST["username"]) && isset($_POST["password"])) {
 
+                // Récupération des informations de connection de l'utilisateur
                 $connexionData = getConnexionData($_POST["username"]);
 
                 if(is_null($connexionData)) {
@@ -54,12 +55,16 @@
                 } else {
 
                     $dbPassword = $connexionData[1];
+                    // Hachage et salage du mot de passe fourni par l'utilisateur
                     $password = hash('sha384', $_POST['password'] . $connexionData[0]);
 
+                    // Comparaison du mot de passe entré avec celui dans la base de donnée
                     if($password == $dbPassword) {
 
+                        // Stockage des données de l'utilisateur dans une variable de session pour maintenant la connexion
                         $_SESSION["user"] = getUserData($_POST["username"]);
 
+                        // Redirection vers la page d'accueil
                         header("Location: index.php");
 
                     } else {
@@ -81,6 +86,7 @@
 
 <?php
 
+    // Récupération du mot de passe et du sel de l'utilisateur
     function getConnexionData($username) {
 
         require 'base.php';
@@ -104,6 +110,7 @@
 
     }
 
+    // Récupération des données de l'utilisateur
     function getUserData($username) {
 
         require 'base.php';

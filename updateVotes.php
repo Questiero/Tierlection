@@ -21,11 +21,10 @@
 
     $statement->execute();
 
-    $items = array();
+    // Pour chaque item, incrémentation du nombre de votes
 	foreach($statement as $row) {
 		if(isset($_GET[str_replace(" ", "", $row["name"])])) {
 			increment($row["idItem"], $_GET[str_replace(" ", "", $row["name"])]);
-            array_push($items, ["name" => str_replace(" ", "", $row["name"])]);
 		} else {
 			header ("Location: index.php");
 		}
@@ -39,11 +38,11 @@
 
 <?php 
 
+    // Incrémente les votes pour l'item $idItem de $value
 	function increment($idItem, $value) {
 
 		require 'base.php';
 
-        // Creation election
         $query = "UPDATE vote SET nbrVotes = nbrVotes + :value WHERE idItem = :idItem AND idElection = :idElection";
         $statement = $connection->prepare($query);
 
@@ -56,6 +55,7 @@
 
 	}
 
+    // Ajoute l'utilisateur dans la liste de ceux ayant participé à cette élection
 	function participate() {
 
         require 'base.php';
@@ -71,11 +71,11 @@
 
 	}
 
+    // Vérifie si l'utilisateur a participé à l'éleciton
     function userParticipated() {
 
         require 'base.php';
 
-        // Get election ID
         $query = "SELECT COUNT(*) FROM participate WHERE idUser = :idUser AND idElection = :idElection";
         $statement = $connection->prepare($query);
 

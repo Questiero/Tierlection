@@ -6,6 +6,7 @@
         header("Location: index.php");
     }
 
+    // Tableau des rangs pour la tierlist
     $rankedItems = ["S" => array(),
         "A" => array(),
         "B" => array(),
@@ -16,8 +17,10 @@
 
     $items = getItems();
 
+    // Tri des items en fonction de leur nombre de vote
     usort($items, "compareItems");
 
+    // Organisation des votes dans leur rang correspondant en fonction du nombre de votes
     $size = count($items);
     for($i = 0; $i < $size; $i++) {
         if($i <= ceil($size*0.05)) {
@@ -71,6 +74,7 @@
                 
                 <?php 
 
+                    // Affichage des images des items de rang S
                     foreach($rankedItems["S"] as $item) {
                         echo "<img class=\"tierlist-img\" src=\"" . $item["icon"] . "\"></img>";
                     }
@@ -85,6 +89,7 @@
                 
                 <?php 
 
+                    // Affichage des images des items de rang A
                     foreach($rankedItems["A"] as $item) {
                         echo "<img class=\"tierlist-img\" src=\"" . $item["icon"] . "\"></img>";
                     }
@@ -99,6 +104,7 @@
                 
                 <?php 
 
+                    // Affichage des images des items de rang B
                     foreach($rankedItems["B"] as $item) {
                         echo "<img class=\"tierlist-img\" src=\"" . $item["icon"] . "\"></img>";
                     }
@@ -113,6 +119,7 @@
                 
                 <?php 
 
+                    // Affichage des images des items de rang C
                     foreach($rankedItems["C"] as $item) {
                         echo "<img class=\"tierlist-img\" src=\"" . $item["icon"] . "\"></img>";
                     }
@@ -127,6 +134,7 @@
                 
                 <?php 
 
+                    // Affichage des images des items de rang D
                     foreach($rankedItems["D"] as $item) {
                         echo "<img class=\"tierlist-img\" src=\"" . $item["icon"] . "\"></img>";
                     }
@@ -141,6 +149,7 @@
                 
                 <?php 
 
+                    // Affichage des images des items de rang E
                     foreach($rankedItems["E"] as $item) {
                         echo "<img class=\"tierlist-img\" src=\"" . $item["icon"] . "\"></img>";
                     }
@@ -155,6 +164,7 @@
                 
                 <?php 
 
+                    // Affichage des images des items de rang F
                     foreach($rankedItems["F"] as $item) {
                         echo "<img class=\"tierlist-img\" src=\"" . $item["icon"] . "\"></img>";
                     }
@@ -173,6 +183,7 @@
 
 <?php 
 
+    // Récupération du nom de l'élection
     function getNameElection() {
 
         require 'base.php';
@@ -190,11 +201,11 @@
 
     }
 
+    // Vérification si l'utilisateur a participé à l'élection
     function userParticipated() {
 
         require 'base.php';
 
-        // Get election ID
         $query = "SELECT COUNT(*) FROM participate WHERE idUser = :idUser AND idElection = :idElection";
         $statement = $connection->prepare($query);
 
@@ -210,11 +221,11 @@
 
     }
 
+    // Vérification si l'utilisateur est organisateur de l'élection
     function userOrganized() {
 
         require 'base.php';
 
-        // Get election ID
         $query = "SELECT COUNT(*) FROM election WHERE idOrganizator = :idUser AND idElection = :idElection";
         $statement = $connection->prepare($query);
 
@@ -230,11 +241,11 @@
 
     }
 
+    // Récupération du nombre de participants à une élection
     function numberParticipants() {
 
         require 'base.php';
 
-        // Get election ID
         $query = "SELECT COUNT(*) FROM participate WHERE idUser = :idUser AND idElection = :idElection";
         $statement = $connection->prepare($query);
 
@@ -250,6 +261,7 @@
 
     }
 
+    // Récupération de tout les items d'une élection
     function getItems() {
 
         require 'base.php';
@@ -257,12 +269,10 @@
         $connection->exec("SET NAMES 'utf8'");
 
         $query = "SELECT i.name, i.description, i.icon, v.nbrVotes FROM item i, election e, vote v WHERE e.idElection = :idElection AND i.idSet = e.idSet AND e.idElection = v.idElection AND i.idItem = v.idItem";
-
         $statement = $connection->prepare($query);
 
         // Bind value and execute query
         $statement->bindValue(":idElection", $_GET["idElection"], PDO::PARAM_STR);
-
         $statement->execute();
 
         $items = array();
@@ -278,6 +288,7 @@
 
     }
 
+    // Fonction de comparaison de deux items en fonction de leur nombre de votes
     function compareItems($a, $b) {
         if ($a == $b) {
             return 0;

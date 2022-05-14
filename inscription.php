@@ -61,6 +61,7 @@
                 $password = $_POST["password"];
                 $confirm = $_POST["confirm"];
 
+                // Vérification de la validité des données saisies
                 $valid = true;
 
                 if (strlen($username) < 4) {
@@ -87,6 +88,7 @@
 
                 if($valid) {
 
+                    // Génération d'un sel et hachage du mot de passe
                     $salt = generateSalt(10);
                     $hash = hash('sha384', $password.$salt);
 
@@ -94,8 +96,10 @@
                         echo "<p class='errors'> Nom d'utilisateur indisponible. </p>";
                     } else {
 
-                        $idUser = createUser($username, $hash, $salt, $canOrganize);
+                        // Insertion de l'utilisateur dans la base de donnée
+                        createUser($username, $hash, $salt, $canOrganize);
 
+                        // Redireciton sur la page de connection
                         header("Location: connexion.php");
 
                     }
@@ -115,6 +119,7 @@
 
 <?php 
 
+    // Génération d'une chaine de caractère aléatoire de taille $size
     function generateSalt($size) {
 
         $chars = "0123456789abcdefghijklmnopqrstuvABCDEFGHIJKLMNOPQRSTUV";
@@ -129,13 +134,13 @@
 
     }
 
+    // Vérificaiton que le nom d'utilisateur n'est pas déjà pris
     function checkUsername($username) {
 
         require 'base.php';
 
         $result = false;
 
-        // Make the query
         $query = "SELECT COUNT(*) FROM user WHERE username = :username";
         $statement = $connection->prepare($query);
 
@@ -154,6 +159,7 @@
 
     }
 
+    // Insertion d'un nouvel utilisateur dans la base de donnée
     function createUser($username, $password, $salt, $canOrganize) {
 
         require 'base.php';

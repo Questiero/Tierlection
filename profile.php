@@ -41,6 +41,7 @@
         
         <?php 
 
+            // Affichage de chaque élection organisée dans le tableau et création d'un bouton permettant d'y accéder
             foreach(getOrganizedElections() as $election) {
 
                 echo "<tr>";
@@ -68,8 +69,7 @@
         
         <?php 
 
-
-
+            // Affichage de chaque élection participée dans le tableau et création d'un bouton permettant d'y accéder
             foreach(getParticipatedElections() as $election) {
 
                 echo "<tr>";
@@ -93,13 +93,13 @@
 
 <?php 
 
+    // Récupération d'une liste des élections organisées par l'utilisateur
     function getOrganizedElections() {
 
         $datas = array();
 
         require 'base.php';
 
-        // Get election ID
         $query = "SELECT name, startDate, endDate, idElection FROM election WHERE idOrganizator = :idUser";
         $statement = $connection->prepare($query);
 
@@ -121,6 +121,7 @@
 
     }
 
+    // Récupération d'une liste des élections auxquelles l'utilisateur a participé
     function getParticipatedElections() {
 
         require 'base.php';

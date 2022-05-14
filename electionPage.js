@@ -2,6 +2,7 @@ var itemTuple = {};
 var votes = {};
 var nbrVote = 0;
 
+// Utilisation d'AJAX pour récupérer tous les items d'une élection
 function loadJSON(idElection) {
 
 	var req = new XMLHttpRequest();
@@ -121,10 +122,12 @@ function generateCards(tuple) {
 	descriptionRight.innerHTML = tuple[1].description;
 	cardRight.append(descriptionRight);
 
+	// update nombre de votes
 	document.getElementById('nbrVotes').innerHTML = "(" + (nbrVote + 1) + "/" + itemTuple.length + ")";
 
 }
 
+// Création d'un URL avec valeurs GET des votes et redirection vers celui-ci
 function updateVotes() {
 
 	var path = "/updateVotes.php?idElection=" + idElection;
@@ -135,8 +138,4 @@ function updateVotes() {
 	})
 
 	window.location.href = window.location.href.substr(0, window.location.href.lastIndexOf("/")) + path;
-}
-
-function format() {
-
 }

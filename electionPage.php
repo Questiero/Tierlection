@@ -26,9 +26,10 @@
 
     <script type="text/javascript" src="electionPage.js"></script>
     <script type="text/javascript">
+        // Passage de l'id de l'élection du php au javascript
         var idElection = <?php echo $_GET["idElection"]; ?>;
+        // Récupération des items
         loadJSON(idElection);
-        
     </script>
 
 
@@ -56,6 +57,7 @@
 
 <?php 
     
+    // Récupère le nom de l'élection
     function getNameElection() {
 
         require 'base.php';
@@ -73,11 +75,11 @@
 
     }
 
+    // Vérification si l'utilisateur a déjà participé à l'élection
     function userParticipated() {
 
         require 'base.php';
 
-        // Get election ID
         $query = "SELECT COUNT(*) FROM participate WHERE idUser = :idUser AND idElection = :idElection";
         $statement = $connection->prepare($query);
 
@@ -93,6 +95,7 @@
 
     }
 
+    // Vérification si la date de début est passée
     function early() {
 
         $startYear;
@@ -105,7 +108,6 @@
 
         require 'base.php';
 
-        // Get election ID
         $query = "SELECT startDate FROM election WHERE idElection = :idElection";
         $statement = $connection->prepare($query);
 
@@ -125,6 +127,7 @@
 
     }
 
+    // Vérification si la date de fin est passée
     function late() {
 
         $endYear;
@@ -137,7 +140,6 @@
 
         require 'base.php';
 
-        // Get election ID
         $query = "SELECT endDate FROM election WHERE idElection = :idElection";
         $statement = $connection->prepare($query);
 
@@ -157,11 +159,11 @@
 
     }
 
+    // Vérification si l'utilisateur est organisateur de l'élection
     function userOrganized() {
 
         require 'base.php';
 
-        // Get election ID
         $query = "SELECT COUNT(*) FROM election WHERE idOrganizator = :idUser AND idElection = :idElection";
         $statement = $connection->prepare($query);
 

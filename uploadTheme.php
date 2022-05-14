@@ -38,6 +38,7 @@
 
 <?php 
 
+	// Récupération de l'id du thème créé
 	function getIdSet() {
 
 		require("base.php");
@@ -58,11 +59,11 @@
 
 	}
 
+	// Insertion d'un nouveau thème dans la base de données
 	function createSet($name) {
 
 		require 'base.php';
 
-        // Creation election
         $query = "INSERT INTO itemSet (name) VALUES (:name)";
         $statement = $connection->prepare($query);
 
@@ -73,11 +74,11 @@
 
 	}
 
+	// Insertion d'un nouvel item dans la base de données
 	function createItem($name, $description, $icon, $idSet) {
 
 		require 'base.php';
 
-        // Creation election
         $query = "INSERT INTO item (name, description, icon, idSet) VALUES (:name, :description, :icon, :idSet)";
         $statement = $connection->prepare($query);
 
