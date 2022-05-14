@@ -11,7 +11,8 @@
         "B" => array(),
         "C" => array(),
         "D" => array(),
-        "E" => array()];
+        "E" => array(),
+        "F" => array()];
 
     $items = getItems();
 
@@ -31,6 +32,8 @@
             array_push($rankedItems["D"], $items[$i]);
         } else if($i <= ceil($size*0.95)) {
             array_push($rankedItems["E"], $items[$i]);
+        } else {
+            array_push($rankedItems["F"], $items[$i]);
         }
     }
 
@@ -144,7 +147,21 @@
 
                 ?>
 
-            </td class="tierlist-td">
+            </td">
+        </tr>
+        <tr>
+            <th class="tierlist-th">F</th>
+            <td class="tierlist-td">
+                
+                <?php 
+
+                    foreach($rankedItems["F"] as $item) {
+                        echo "<img class=\"tierlist-img\" src=\"" . $item["icon"] . "\"></img>";
+                    }
+
+                ?>
+
+            </td">
         </tr>
 
     </table>
