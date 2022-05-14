@@ -141,7 +141,6 @@ input{
 table {
 	table-layout: fixed;
   
-  width: 75%;
   border-collapse: collapse;
   border: 3px solid purple;
   text-align: center;
@@ -152,10 +151,17 @@ table {
   background-color: lavender;
 }
 
+#table-list {
+	position: absolute;
+	width: 75%;
+  top: 30%;
+  left: 12%;
+}
+
 #table-list, #table-result {
   position: absolute;
   top: 30%;
-  left: 12%;
+  left: 30%;
 }
 
 th {
@@ -282,4 +288,9 @@ p {
 
 .tierlist-td {
 	height: 75px;
+	width: 600px;
+}
+
+.tierlist-th {
+	width: 75px;
 }
