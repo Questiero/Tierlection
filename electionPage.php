@@ -15,7 +15,7 @@
 <head>
     <title>TierLection</title>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="Tierlection.css"/>
+    <link rel="stylesheet" href="TierLection.css"/>
 </head>
 <body>
     
