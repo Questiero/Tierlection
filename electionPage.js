@@ -134,5 +134,5 @@ function updateVotes() {
 		path += value;
 	})
 
-	window.location.href = path;
+	window.location.pathname = path;
 }
