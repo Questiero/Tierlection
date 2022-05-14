@@ -39,7 +39,9 @@
             </div>
 
             <div id=\"credits\">
+            <form action=\"Credits.php\">
                 <button type=\"submit\">Crédits</button>
+            </form>
                 <button type=\"submit\">FAQ</button>
             </div>
         </div>";
