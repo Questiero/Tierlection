@@ -6,7 +6,7 @@
 		for($i = 1; $i <= $_POST["nbrItems"]; $i++) {
 
 			if(!isset($_POST["item".$i."-name"]) || !isset($_POST["item".$i."-description"]) || !isset($_FILES["item".$i."-file"])) {
-				header("Location: resultats.php?done=0");
+				header("Location: newTheme.php?done=0");
 			}
 
 		}
@@ -23,15 +23,15 @@
 			if(move_uploaded_file($_FILES["item".$i."-file"]["tmp_name"], $target_dir . basename($_FILES["item".$i."-file"]["name"]))) {
 				createItem($_POST["item".$i."-name"], $_POST["item".$i."-description"], $target_dir . basename($_FILES["item".$i."-file"]["name"]), $idSet);
 			} else {
-				header("Location: resultats.php?done=0");
+				header("Location: newTheme.php?done=0");
 			}
 
 		}
 
-		header("Location: resultats.php?done=1");
+		header("Location: newTheme.php?done=1");
 
 	} else {
-		header("Location: resultats.php?done=0");
+		header("Location: newTheme.php?done=0");
 	}
 
 ?>
