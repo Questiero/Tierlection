@@ -35,10 +35,9 @@ body{
 }
 
 #connexion{
-	float: right;
-	position: fixed;
-	top: 0;
-	right: 0;
+	position: absolute;
+	top: 0%;
+	right: 0%;
 
 }	
 
@@ -78,7 +77,7 @@ body{
 	background-color: lavender;
 	border-radius: 30px;
 
-	position: fixed;
+	position: absolute;
 	top: 35%;
 	
 	text-align: center;
@@ -96,14 +95,14 @@ input{
 
 #credits{
 	text-align: center;
-	position: fixed;
-	bottom : 0;
+	position: absolute;
+	bottom : 0%;
 }
 
 #profile{
-	position: fixed;
-	right: 0;
-	top: 0;
+	position: absolute;
+	right: 0%;
+	top: 0%;
 }
 
 .panel{
@@ -112,7 +111,7 @@ input{
 
 	padding: 10px;
 	line-height: 30px;
-	position: fixed;
+	position: absolute;
 	left: 33%;
 	top: 40%;
 	width: 500px;
@@ -121,13 +120,13 @@ input{
 }
 
 #elec_list{
-	position: fixed;
+	position: absolute;
 	left: 35%;
 	bottom: 18%;
 }
 
 #elec_new{
-	position: fixed;
+	position: absolute;
 	right: 35%;
 	bottom: 18%;
 }
@@ -229,7 +228,7 @@ p {
 }
 
 #voteTxt {
-	position: fixed;
+	position: absolute;
 	top: 15%;
 	left: 34%;
 	font-size: 1.7em;
@@ -244,6 +243,10 @@ p {
 	margin-bottom: 25px;
 
 	font-size: 1.7em;
+}
+
+#profileTxt1 {
+	margin-top: 10%;
 }
 
 .card{

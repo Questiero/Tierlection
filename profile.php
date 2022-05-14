@@ -31,7 +31,7 @@
     </div>
 
     <table>
-        <p class="profileTxt">Elections que vous avez organisées</p>
+        <p class="profileTxt" id="profileTxt1">Elections que vous avez organisées</p>
         <tr>
             <th>Nom</th>
             <th>Date de début</th>
