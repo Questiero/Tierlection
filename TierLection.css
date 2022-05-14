@@ -16,17 +16,14 @@
 
 
 body{
-	margin-left: 20px;
-	margin-right: 20px;
 	background-image: url("./Fond.png");
 
 	font-family: "roboto-medium";
 }
 
-#titre > img{
+#tierlection-logo {
 	width: 250px;
 	float: left;
-	position: fixed;
 	top: 0;
 	left: 0;
 }

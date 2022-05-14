@@ -49,7 +49,7 @@
                 </div>
                 <div>
                     <label for ="theme">Theme</label>
-                    <select id="theme" name="theme">
+                    <select id="theme" name="theme" for="newTheme">
 
                         <option value="">Sélectionnez un thème</option>
 
@@ -62,6 +62,7 @@
                         ?>
 
                     </select>
+                    <div id="newTheme">Cliquez ici pour ajouter un thème</div>
                 </div>
                     
             </div>
@@ -117,6 +118,11 @@
     </div>
 
     <script type="text/javascript" src="logoIndex.js"></script>
+    <script type="text/javascript">
+        
+        document.getElementById("newTheme").addEventListener("click", function() {window.location.href = "newTheme.php";});
+
+    </script>
 
 </body>
 </html>
