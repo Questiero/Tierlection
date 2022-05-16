@@ -293,7 +293,7 @@
         if ($a == $b) {
             return 0;
         }
-        return ($a["nbrVotes"] < $b["nbrVotes"]) ? -1 : 1;
+        return ($a["nbrVotes"] > $b["nbrVotes"]) ? -1 : 1;
     }
 
 ?>
